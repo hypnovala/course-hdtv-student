@@ -636,13 +636,24 @@
 
     .instructor-wrap {
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 56px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
       align-items: start;
     }
 
+    .instructor-card {
+      background: linear-gradient(180deg, rgba(18, 20, 26, 0.96), rgba(9, 10, 14, 0.98));
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      height: 100%;
+    }
+
     .instructor-photo {
-      aspect-ratio: 3/4;
+      aspect-ratio: 4/3;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -662,25 +673,17 @@
       text-transform: uppercase;
     }
 
-    .instructor-bio h2 {
+    .instructor-bio h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
+      font-size: 30px;
       font-weight: 700;
       color: var(--white);
-      margin-bottom: 4px;
-    }
-
-    .instructor-bio .title {
-      font-size: 13px;
-      color: var(--gold);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 8px;
     }
 
     .instructor-bio p {
       color: var(--muted);
-      margin-bottom: 14px;
+      margin: 0;
       font-size: 15px;
     }
 
@@ -1335,20 +1338,41 @@
 <section id="instructor" style="background:var(--dark);">
   <div class="section">
     <div class="section-label">Your Guide</div>
-    <h2 class="section-title">Meet Your Instructor</h2>
+    <h2 class="section-title">Meet the Instructors</h2>
 
     <div class="instructor-wrap">
-      <div class="instructor-photo">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        <span>Photo Placeholder</span>
-      </div>
-      <div class="instructor-bio">
-        <h2>HypnoticDream TV</h2>
-        <p class="title">Founder · Lead Instructor · HDTV</p>
-        <p>HDTV was built on a single conviction: that most men have never been given an honest education about themselves — their attention, their drive, their impact on the people around them, and their inner life as sexual beings.</p>
-        <p>The Men's Mastery Program is the foundation of that education. It is not therapy. It is not motivational content. It is structured, practitioner-level work that treats you like the intelligent adult you are.</p>
-        <p>Every module, every worksheet, and every video lesson in this curriculum was developed through years of coaching, research, and direct work with men who were willing to take an honest look at themselves and do something about it.</p>
-      </div>
+      <article class="instructor-card">
+        <div class="instructor-photo">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>instructor_01</span>
+        </div>
+        <div class="instructor-bio">
+          <h3>The Blond Teacher</h3>
+          <p>Your flirty next-door blonde tutor. Smart, teasing, and dangerously addictive — she teaches you control with a smile that makes focus feel sinful.</p>
+        </div>
+      </article>
+
+      <article class="instructor-card">
+        <div class="instructor-photo">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>instructor_02</span>
+        </div>
+        <div class="instructor-bio">
+          <h3>The Spicey Dominatrix</h3>
+          <p>Your strict, sultry Latina dominatrix. She commands your attention, cracks the whip on weak habits, and trains you to become the powerful man she demands.</p>
+        </div>
+      </article>
+
+      <article class="instructor-card">
+        <div class="instructor-photo">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>instructor_03</span>
+        </div>
+        <div class="instructor-bio">
+          <h3>The Naughty Nurse</h3>
+          <p>Your playful, wicked exotic nurse. She diagnoses your weaknesses with a mischievous smile and heals you with doses of confidence, desire, and deep hypnotic pleasure.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
