@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HDTV Training | Men's Mastery Program</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --dark: #111318;
+      --card: #161b24;
+      --border: #1e2535;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-dim: rgba(201,168,76,0.15);
+      --white: #f5f2ec;
+      --muted: #7a8099;
+      --red-accent: #8b2030;
+      --text: #d4cfc6;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ─── HEADER ─────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-badge {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--gold), #8b6b20);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #000;
+      letter-spacing: -0.5px;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text span:first-child {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .logo-text span:last-child {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    .btn-enroll {
+      background: var(--gold);
+      color: #000;
+      padding: 9px 22px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-enroll:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    /* ─── HERO ────────────────────────────────── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--dark);
+      padding: 96px 32px 80px;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--gold-dim);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.08;
+      max-width: 760px;
+      margin: 0 auto 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      max-width: 560px;
+      margin: 0 auto 40px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .hero-meta-item svg { color: var(--gold); }
+
+    .hero-cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #000;
+      padding: 14px 36px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 14px 36px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ─── DIVIDER ─────────────────────────────── */
+    .divider-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    /* ─── SECTION WRAPPER ─────────────────────── */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 32px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 56px;
+      font-size: 15px;
+    }
+
+    /* ─── MODULES ─────────────────────────────── */
+    #modules { background: var(--dark); }
+
+    .modules-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .module-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .module-card:hover { border-color: rgba(201,168,76,0.35); }
+
+    .module-header {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: 28px 32px;
+      cursor: pointer;
+    }
+
+    .module-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--gold-dim);
+      line-height: 1;
+      user-select: none;
+      background: linear-gradient(135deg, var(--gold) 30%, transparent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .module-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .module-info p {
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .module-toggle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 18px;
+      transition: all 0.2s;
+      flex-shrink: 0;
+      cursor: pointer;
+      background: none;
+    }
+
+    .module-card.open .module-toggle {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    .module-body {
+      display: none;
+      padding: 0 32px 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .module-card.open .module-body { display: block; }
+
+    /* VIDEO PLACEHOLDER */
+    .video-placeholder {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #0c0f14;
+      border-radius: 6px;
+      border: 2px dashed var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 24px 0;
+      overflow: hidden;
+    }
+
+    .video-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(201,168,76,0.04), transparent);
+    }
+
+    .video-play-btn {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      border: 2px solid rgba(201,168,76,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      position: relative;
+    }
+
+    .video-play-btn svg { margin-left: 4px; }
+
+    .video-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    .video-filename {
+      font-size: 11px;
+      color: rgba(201,168,76,0.5);
+      font-family: monospace;
+      letter-spacing: 0.04em;
+    }
+
+    /* MODULE LESSONS LIST */
+    .lessons-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .lesson-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.025);
+      border-radius: 5px;
+      border: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .lesson-item:hover { border-color: var(--border); }
+
+    .lesson-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      border: 1px solid rgba(201,168,76,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .lesson-icon svg { color: var(--gold); }
+
+    .lesson-content h4 {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .lesson-content p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ─── STATS STRIP ─────────────────────────── */
+    .stats-strip {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 32px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-lbl {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ─── ADVANCED COURSES ────────────────────── */
+    #advanced { background: var(--black); }
+
+    .advanced-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .course-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .course-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,168,76,0.35);
+    }
+
+    .course-img-holder {
+      aspect-ratio: 16/10;
+      background: #0c0f14;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .course-img-holder::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%);
+    }
+
+    .img-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(201,168,76,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+
+    .img-label {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .course-body {
+      padding: 24px;
+    }
+
+    .course-badge {
+      display: inline-block;
+      background: var(--gold-dim);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 12px;
+    }
+
+    .course-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .course-body p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .course-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .course-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .btn-course {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-course:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    /* ─── INSTRUCTOR ──────────────────────────── */
+    #instructor { background: var(--dark); }
+
+    .instructor-wrap {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .instructor-photo {
+      aspect-ratio: 3/4;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .instructor-photo svg { color: var(--muted); }
+
+    .instructor-photo span {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .instructor-bio h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .instructor-bio .title {
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .instructor-bio p {
+      color: var(--muted);
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+
+    /* ─── FOOTER ──────────────────────────────── */
+    footer {
+      background: #070709;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 32px 40px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 16px;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover { color: var(--gold); }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .footer-contact-item svg { color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+
+    .footer-contact-item span {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer-bottom a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom a:hover { color: var(--gold); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    /* ─── ANNOUNCEMENT BAR ────────────────────── */
+    .topbar {
+      background: var(--gold);
+      color: #000;
+      text-align: center;
+      padding: 9px 24px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── PROGRESS BAR DEMO ───────────────────── */
+    .progress-wrap {
+      margin: 20px 0 0;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .progress-bar {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 2px;
+    }
+
+    /* ─── MOBILE ──────────────────────────────── */
+    @media (max-width: 768px) {
+      .header-inner { padding: 0 20px; }
+      nav { display: none; }
+      .section { padding: 60px 20px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .footer-main { grid-template-columns: 1fr 1fr; }
+      .instructor-wrap { grid-template-columns: 1fr; }
+      .instructor-photo { aspect-ratio: 4/3; }
+      .module-header { grid-template-columns: 48px 1fr auto; gap: 16px; padding: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-main { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="topbar">
+  🔒 Enrolled Students Only — course.hypnoticdreamtv.com &nbsp;|&nbsp; Questions? support@hypnoticdreamtv.com
+</div>
+
+<!-- ─── HEADER ──────────────────────────────────── -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-badge">HD</div>
+      <div class="logo-text">
+        <span>HDTV</span>
+        <span>Training Portal</span>
+      </div>
+    </a>
+
+    <nav>
+      <a href="#modules">Modules</a>
+      <a href="#advanced">Advanced</a>
+      <a href="#instructor">Instructor</a>
+      <a href="#support">Support</a>
+    </nav>
+
+    <a href="#modules" class="btn-enroll">Start Learning</a>
+  </div>
+</header>
+
+<!-- ─── HERO ─────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-tag">Men's Mastery Program — Module 1</div>
+  <h1>HDTV <em>Sex Ed 101</em><br>Men's Mastery Program</h1>
+  <p class="hero-subtitle">
+    A structured, four-week program designed to help men reclaim their attention, channel their drive, build unshakable composure, and become deeply compelling — to themselves and to others.
+  </p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      7 Modules · 4 Weekly Lessons each
+    </div>
+    <div class="hero-meta-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Private · Enrolled Students Only
+    </div>
+    <div class="hero-meta-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Guided Worksheet System
+    </div>
+  </div>
+  <div class="hero-cta-group">
+    <a href="#modules" class="btn-primary">Access My Modules</a>
+    <a href="#advanced" class="btn-outline">View Advanced Courses</a>
+  </div>
+</section>
+
+<!-- ─── STATS ─────────────────────────────────────── -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-val">7</div>
+      <div class="stat-lbl">Core Modules</div>
+    </div>
+    <div>
+      <div class="stat-val">28</div>
+      <div class="stat-lbl">Video Lessons</div>
+    </div>
+    <div>
+      <div class="stat-val">4</div>
+      <div class="stat-lbl">Weeks of Training</div>
+    </div>
+    <div>
+      <div class="stat-val">∞</div>
+      <div class="stat-lbl">Lifetime Access</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── MODULES ───────────────────────────────────── -->
+<section id="modules" style="background:var(--dark);">
+  <div class="section">
+    <div class="section-label">Core Curriculum</div>
+    <h2 class="section-title">Your Training Modules</h2>
+    <p class="section-sub">Work through each module in sequence. Each contains a full video lesson and companion worksheet activities.</p>
+
+    <div class="modules-grid">
+
+      <!-- MODULE 1 -->
+      <div class="module-card open">
+        <div class="module-header" onclick="toggleModule(this)">
+          <div class="module-num">01</div>
+          <div class="module-info">
+            <h3>Reclaim Your Wandering Attention</h3>
+            <p>Theme: Focus and Intentionality</p>
+          </div>
+          <button class="module-toggle">+</button>
+        </div>
+        <div class="module-body">
+          <div class="video-placeholder">
+            <div class="video-play-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="video-label">Module 1 — Video Lesson</span>
+            <span class="video-filename">mod_videohdtv.mp4</span>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Your Progress</span><span>0%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+          </div>
+          <ul class="lessons-list">
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <div class="lesson-content">
+                <h4>Worksheet 1 — Attention Self-Assessment</h4>
+                <p>Audit where your attention is actually going. No right answers — honest reflection only.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+              <div class="lesson-content">
+                <h4>Daily Attention Practices</h4>
+                <p>Five trainable habits — pick the one that addresses your specific weakness this week.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+              <div class="lesson-content">
+                <h4>Weekly Commitment — Name Your Boundary</h4>
+                <p>One concrete attention boundary you will hold for seven days. Specific enough to measure.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 2 -->
+      <div class="module-card">
+        <div class="module-header" onclick="toggleModule(this)">
+          <div class="module-num">02</div>
+          <div class="module-info">
+            <h3>Turn Raw Desire Into Focused Power</h3>
+            <p>Theme: Drive and Transmutation</p>
+          </div>
+          <button class="module-toggle">+</button>
+        </div>
+        <div class="module-body">
+          <div class="video-placeholder">
+            <div class="video-play-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="video-label">Module 2 — Video Lesson</span>
+            <span class="video-filename">mod_videohdtv.mp4</span>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Your Progress</span><span>0%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+          </div>
+          <ul class="lessons-list">
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <div class="lesson-content">
+                <h4>Desire Inventory</h4>
+                <p>Write what you actually want — not the sanitized version. This requires real honesty.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+              <div class="lesson-content">
+                <h4>The Transmutation Map</h4>
+                <p>For every desire named, identify a focused action that channels that energy productively.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+              <div class="lesson-content">
+                <h4>Your Power Statement</h4>
+                <p>A declaration — not an affirmation. Something you are committing to make true. Read it aloud.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 3 -->
+      <div class="module-card">
+        <div class="module-header" onclick="toggleModule(this)">
+          <div class="module-num">03</div>
+          <div class="module-info">
+            <h3>Build That Calm, Unshakable Masculine Edge</h3>
+            <p>Theme: Composure and Presence</p>
+          </div>
+          <button class="module-toggle">+</button>
+        </div>
+        <div class="module-body">
+          <div class="video-placeholder">
+            <div class="video-play-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="video-label">Module 3 — Video Lesson</span>
+            <span class="video-filename">mod_videohdtv.mp4</span>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Your Progress</span><span>0%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+          </div>
+          <ul class="lessons-list">
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <div class="lesson-content">
+                <h4>The Pressure Map</h4>
+                <p>Identify where your specific edges are. Most men are solid in some areas and fragile in others.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+              <div class="lesson-content">
+                <h4>The Five Pillars: Breath, Body, Pause, Frame, Silence</h4>
+                <p>Focus on the one pillar that will make the biggest difference for you right now.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+              <div class="lesson-content">
+                <h4>Composure Challenge</h4>
+                <p>Name one real situation this week. Decide in advance how the strongest version of you handles it.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 4 -->
+      <div class="module-card">
+        <div class="module-header" onclick="toggleModule(this)">
+          <div class="module-num">04</div>
+          <div class="module-info">
+            <h3>Become the Man She Can't Stop Thinking About</h3>
+            <p>Theme: Presence, Polarity and Purpose</p>
+          </div>
+          <button class="module-toggle">+</button>
+        </div>
+        <div class="module-body">
+          <div class="video-placeholder">
+            <div class="video-play-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="video-label">Module 4 — Video Lesson</span>
+            <span class="video-filename">mod_videohdtv.mp4</span>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Your Progress</span><span>0%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+          </div>
+          <ul class="lessons-list">
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <div class="lesson-content">
+                <h4>The Attraction Audit</h4>
+                <p>Examine the habits — physical and behavioral — that have diluted your attractiveness over time.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+              <div class="lesson-content">
+                <h4>Three Pillars: Presence, Polarity, Purpose</h4>
+                <p>These are orientations, not techniques. Understand the difference — then live it.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+              <div class="lesson-content">
+                <h4>7-Day Challenge</h4>
+                <p>One action per day. Small enough to do, meaningful enough to matter. Report back at the next session.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 5 -->
+      <div class="module-card">
+        <div class="module-header" onclick="toggleModule(this)">
+          <div class="module-num">05</div>
+          <div class="module-info">
+            <h3>Mastering Emotional Intelligence</h3>
+            <p>Theme: Self-Awareness and Regulation</p>
+          </div>
+          <button class="module-toggle">+</button>
+        </div>
+        <div class="module-body">
+          <div class="video-placeholder">
+            <div class="video-play-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="video-label">Module 5 — Video Lesson</span>
+            <span class="video-filename">mod_videohdtv.mp4</span>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Your Progress</span><span>0%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+          </div>
+          <ul class="lessons-list">
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <div class="lesson-content">
+                <h4>Emotional Inventory</h4>
+                <p>Map your emotional patterns — the ones you lead with and the ones you suppress.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+              <div class="lesson-content">
+                <h4>Regulation Toolkit</h4>
+                <p>Practical tools for staying grounded when your emotional state is triggered in real time.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 6 -->
+      <div class="module-card">
+        <div class="module-header" onclick="toggleModule(this)">
+          <div class="module-num">06</div>
+          <div class="module-info">
+            <h3>Communication That Commands Respect</h3>
+            <p>Theme: Language, Assertion and Clarity</p>
+          </div>
+          <button class="module-toggle">+</button>
+        </div>
+        <div class="module-body">
+          <div class="video-placeholder">
+            <div class="video-play-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="video-label">Module 6 — Video Lesson</span>
+            <span class="video-filename">mod_videohdtv.mp4</span>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Your Progress</span><span>0%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+          </div>
+          <ul class="lessons-list">
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <div class="lesson-content">
+                <h4>Language Audit</h4>
+                <p>Identify the hedging, apologizing, and filler speech patterns eroding your authority.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+              <div class="lesson-content">
+                <h4>Assertion Without Aggression</h4>
+                <p>Say what you mean. Mean what you say. Leave no ambiguity about where you stand.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 7 -->
+      <div class="module-card">
+        <div class="module-header" onclick="toggleModule(this)">
+          <div class="module-num">07</div>
+          <div class="module-info">
+            <h3>The Integration — Becoming That Man</h3>
+            <p>Theme: Identity and Long-Term Embodiment</p>
+          </div>
+          <button class="module-toggle">+</button>
+        </div>
+        <div class="module-body">
+          <div class="video-placeholder">
+            <div class="video-play-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="video-label">Module 7 — Final Video Lesson</span>
+            <span class="video-filename">mod_videohdtv.mp4</span>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Your Progress</span><span>0%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+          </div>
+          <ul class="lessons-list">
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <div class="lesson-content">
+                <h4>The Full-Circle Review</h4>
+                <p>Look at every module from the outside. Name the single most important shift you are carrying forward.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+              <div class="lesson-content">
+                <h4>The Man Manifesto</h4>
+                <p>Write the declaration of who you are becoming. Not a wish. A decision.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 15 15"/></svg></div>
+              <div class="lesson-content">
+                <h4>Graduation & Next Steps</h4>
+                <p>Your path into the Advanced track. You have laid the foundation — now we build on it.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /modules-grid -->
+  </div>
+</section>
+
+<!-- ─── ADVANCED COURSES ───────────────────────────── -->
+<section id="advanced">
+  <div class="section">
+    <div class="section-label">Go Deeper</div>
+    <h2 class="section-title">Advanced Courses</h2>
+    <p class="section-sub">For graduates of the Men's Mastery Program ready to continue the work at an elevated level.</p>
+
+    <div class="advanced-grid">
+
+      <div class="course-card">
+        <div class="course-img-holder">
+          <div class="img-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="img-label">Course Image Placeholder</span>
+        </div>
+        <div class="course-body">
+          <span class="course-badge">Advanced</span>
+          <h3>Intimate Mastery: Connection & Polarity</h3>
+          <p>A deep-dive into the dynamics of attraction, intimacy, and sustained connection in relationships. For men who have completed Module 1.</p>
+          <div class="course-footer">
+            <span class="course-price">$297</span>
+            <a href="#" class="btn-course">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-img-holder">
+          <div class="img-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </div>
+          <span class="img-label">Course Image Placeholder</span>
+        </div>
+        <div class="course-body">
+          <span class="course-badge">Advanced</span>
+          <h3>Subconscious Reprogramming for Men</h3>
+          <p>Using hypnosis and guided visualization to dissolve the deep-seated beliefs blocking your full masculine expression.</p>
+          <div class="course-footer">
+            <span class="course-price">$347</span>
+            <a href="#" class="btn-course">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-img-holder">
+          <div class="img-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <span class="img-label">Course Image Placeholder</span>
+        </div>
+        <div class="course-body">
+          <span class="course-badge">Advanced</span>
+          <h3>Sexual Health & Performance Mastery</h3>
+          <p>A frank, science-grounded curriculum on male sexual health, performance, and the psychology of fulfilling intimacy.</p>
+          <div class="course-footer">
+            <span class="course-price">$397</span>
+            <a href="#" class="btn-course">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-img-holder">
+          <div class="img-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <span class="img-label">Course Image Placeholder</span>
+        </div>
+        <div class="course-body">
+          <span class="course-badge">Coming Soon</span>
+          <h3>The HDTV Mastermind: Private Coaching</h3>
+          <p>One-on-one and small-group intensive sessions with HDTV instructors. Limited seats. Application required.</p>
+          <div class="course-footer">
+            <span class="course-price">Apply</span>
+            <a href="#support" class="btn-course">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── INSTRUCTOR ─────────────────────────────────── -->
+<section id="instructor" style="background:var(--dark);">
+  <div class="section">
+    <div class="section-label">Your Guide</div>
+    <h2 class="section-title">Meet Your Instructor</h2>
+
+    <div class="instructor-wrap">
+      <div class="instructor-photo">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Photo Placeholder</span>
+      </div>
+      <div class="instructor-bio">
+        <h2>HypnoticDream TV</h2>
+        <p class="title">Founder · Lead Instructor · HDTV</p>
+        <p>HDTV was built on a single conviction: that most men have never been given an honest education about themselves — their attention, their drive, their impact on the people around them, and their inner life as sexual beings.</p>
+        <p>The Men's Mastery Program is the foundation of that education. It is not therapy. It is not motivational content. It is structured, practitioner-level work that treats you like the intelligent adult you are.</p>
+        <p>Every module, every worksheet, and every video lesson in this curriculum was developed through years of coaching, research, and direct work with men who were willing to take an honest look at themselves and do something about it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SUPPORT ────────────────────────────────────── -->
+<section id="support" style="background:var(--black); border-top:1px solid var(--border);">
+  <div class="section" style="padding-bottom:56px;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;">
+      <div>
+        <div class="section-label">Student Support</div>
+        <h2 class="section-title" style="margin-bottom:12px;">We're Here for You</h2>
+        <p style="color:var(--muted); font-size:15px; line-height:1.7; margin-bottom:28px;">
+          If you have questions about your enrollment, need technical help with a video, or want to connect with support — we respond within 24 hours.
+        </p>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>support@hypnoticdreamtv.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>Live chat available Mon–Fri, 10am–6pm EST</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>FAQ and student knowledge base at help.hypnoticdreamtv.com</span>
+        </div>
+      </div>
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:8px; padding:32px;">
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--white); margin-bottom:20px;">Send Us a Message</h3>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div>
+            <label style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:6px;">Your Name</label>
+            <input type="text" placeholder="First and last name" style="width:100%; background:#0a0c10; border:1px solid var(--border); color:var(--text); padding:11px 14px; border-radius:4px; font-size:14px; font-family:inherit; outline:none;">
+          </div>
+          <div>
+            <label style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:6px;">Email Address</label>
+            <input type="email" placeholder="you@email.com" style="width:100%; background:#0a0c10; border:1px solid var(--border); color:var(--text); padding:11px 14px; border-radius:4px; font-size:14px; font-family:inherit; outline:none;">
+          </div>
+          <div>
+            <label style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:6px;">Message</label>
+            <textarea rows="4" placeholder="What do you need help with?" style="width:100%; background:#0a0c10; border:1px solid var(--border); color:var(--text); padding:11px 14px; border-radius:4px; font-size:14px; font-family:inherit; outline:none; resize:vertical;"></textarea>
+          </div>
+          <button style="background:var(--gold); color:#000; border:none; padding:13px; border-radius:4px; font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; transition:background 0.2s;" onmouseover="this.style.background='#e8c97a'" onmouseout="this.style.background='#c9a84c'">
+            Send Message
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────── -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="#" class="logo" style="margin-bottom:0;">
+        <div class="logo-badge">HD</div>
+        <div class="logo-text">
+          <span>HDTV</span>
+          <span>Training Portal</span>
+        </div>
+      </a>
+      <p>HDTV Sex Ed 101 is a private training platform for enrolled students. All content is proprietary and for student use only. Do not distribute.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Curriculum</h4>
+      <ul>
+        <li><a href="#modules">Module Overview</a></li>
+        <li><a href="#modules">Module 1 — Focus</a></li>
+        <li><a href="#modules">Module 2 — Drive</a></li>
+        <li><a href="#modules">Module 3 — Composure</a></li>
+        <li><a href="#modules">Module 4 — Presence</a></li>
+        <li><a href="#advanced">Advanced Courses</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Account</h4>
+      <ul>
+        <li><a href="#">My Dashboard</a></li>
+        <li><a href="#">My Progress</a></li>
+        <li><a href="#">Downloads</a></li>
+        <li><a href="#">Billing</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>support@hypnoticdreamtv.com</span>
+      </div>
+      <div class="footer-contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>course.hypnoticdreamtv.com</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2025 HypnoticDream TV · All rights reserved · For enrolled students only.</span>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#support">Support</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleModule(headerEl) {
+    const card = headerEl.closest('.module-card');
+    card.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
