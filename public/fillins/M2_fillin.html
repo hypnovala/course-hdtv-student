@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Module 2 — Goal Setting for Men | HDTV Fill-In</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--black:#0a0a0a;--dark:#111318;--card:#161b24;--border:#1e2535;--gold:#c9a84c;--gold-light:#e8c97a;--gold-dim:rgba(201,168,76,0.12);--white:#f5f2ec;--muted:#7a8099;--text:#d4cfc6;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--black);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;}
+  .topbar{background:var(--gold);color:#000;text-align:center;padding:9px 24px;font-size:12px;font-weight:600;letter-spacing:0.06em;}
+  .topbar a{color:#000;text-decoration:none;font-weight:700;}
+  header{background:rgba(10,10,10,0.97);border-bottom:1px solid var(--border);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .logo-badge{width:36px;height:36px;background:linear-gradient(135deg,var(--gold),#8b6b20);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:16px;color:#000;}
+  .logo-text span{display:block;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;line-height:1.1;}
+  .logo-text small{font-size:10px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;}
+  .header-tag{font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--border);padding:4px 12px;border-radius:2px;}
+  .page{max-width:760px;margin:0 auto;padding:56px 24px 80px;}
+  .mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold-dim);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;padding:6px 14px;border-radius:2px;margin-bottom:24px;}
+  .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,46px);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:8px;}
+  .page-subtitle{color:var(--muted);font-size:14px;margin-bottom:40px;font-style:italic;}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:36px 0;}
+  .section-title{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+  .callout{background:linear-gradient(135deg,rgba(201,168,76,0.06),rgba(201,168,76,0.02));border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:16px 20px;margin:20px 0 28px;font-style:italic;font-size:14px;color:var(--text);line-height:1.7;}
+  .callout strong{color:var(--gold);font-style:normal;}
+  .scale-block{margin-bottom:24px;}
+  .scale-question{font-size:14px;color:var(--white);margin-bottom:10px;line-height:1.5;}
+  .scale-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .scale-end{font-size:11px;color:var(--muted);letter-spacing:0.04em;white-space:nowrap;}
+  .scale-nums{display:flex;gap:4px;}
+  .scale-nums label{cursor:pointer;}
+  .scale-nums input[type=radio]{display:none;}
+  .scale-nums input[type=radio]+span{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1px solid var(--border);font-size:12px;color:var(--muted);transition:all 0.15s;user-select:none;}
+  .scale-nums input[type=radio]:checked+span{background:var(--gold);border-color:var(--gold);color:#000;font-weight:700;}
+  .scale-nums label:hover span{border-color:var(--gold);color:var(--gold);}
+  .field-group{display:flex;flex-direction:column;gap:12px;margin-bottom:8px;}
+  .field-row{display:flex;align-items:flex-start;gap:10px;}
+  .field-num{min-width:20px;font-size:13px;color:var(--gold);font-weight:600;padding-top:10px;}
+  .field-row textarea,.field-row input[type=text]{flex:1;background:#0c0f16;border:1px solid var(--border);border-radius:5px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 14px;resize:vertical;line-height:1.6;min-height:42px;outline:none;transition:border-color 0.2s;}
+  .field-row textarea{min-height:64px;}
+  .field-row textarea:focus,.field-row input[type=text]:focus{border-color:rgba(201,168,76,0.45);}
+  .target-box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;margin-bottom:16px;}
+  .target-box label{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;}
+  .target-box textarea{width:100%;background:#0a0c10;border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 14px;resize:vertical;min-height:64px;outline:none;line-height:1.6;transition:border-color 0.2s;}
+  .target-box textarea:focus{border-color:rgba(201,168,76,0.45);}
+  .commitment-box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:28px 24px;margin-top:8px;}
+  .commitment-box label{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;}
+  .commitment-box textarea{width:100%;background:#0a0c10;border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 14px;resize:vertical;min-height:64px;outline:none;line-height:1.6;transition:border-color 0.2s;}
+  .commitment-box textarea:focus{border-color:rgba(201,168,76,0.45);}
+  .sig-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+  .sig-field input{width:100%;background:#0a0c10;border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 14px;outline:none;transition:border-color 0.2s;}
+  .sig-field input:focus{border-color:rgba(201,168,76,0.45);}
+  .action-bar{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:32px;border-top:1px solid var(--border);}
+  .btn-print{background:var(--gold);color:#000;border:none;padding:12px 28px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;}
+  .btn-print:hover{background:var(--gold-light);}
+  .btn-back{background:transparent;border:1px solid var(--border);color:var(--muted);padding:12px 24px;border-radius:4px;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:border-color 0.2s,color 0.2s;}
+  .btn-back:hover{border-color:var(--gold);color:var(--gold);}
+  @media print{.topbar,.header-tag,.action-bar,header{display:none!important;}body{background:#fff;color:#111;}.page{padding:20px;}.field-row textarea,.field-row input,.commitment-box textarea,.sig-field input,.target-box textarea{background:#fff;border:1px solid #ccc;color:#111;}.callout{background:#f9f7f0;border-left:3px solid #c9a84c;}.commitment-box,.target-box{background:#f9f7f0;border:1px solid #ddd;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">🔒 Enrolled Students Only &nbsp;|&nbsp; <a href="/">← Return to Course Portal</a></div>
+<header>
+  <a href="/" class="logo">
+    <div class="logo-badge">HD</div>
+    <div class="logo-text"><span>HDTV</span><small>Training Portal</small></div>
+  </a>
+  <div class="header-tag">Module 2 Worksheet</div>
+</header>
+
+<div class="page">
+  <div class="mod-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Module 02</div>
+  <h1 class="page-title">Goal Setting for Men</h1>
+  <p class="page-subtitle">Stop drifting. Step into clear, identity-based direction.</p>
+
+  <div class="divider"></div>
+
+  <div class="section-title">How Directed Are You Right Now?</div>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Rate each honestly (1 = not at all, 10 = completely true):</p>
+
+  <div class="scale-block">
+    <div class="scale-question">My goals excite me enough to think about them when no one is watching</div>
+    <div class="scale-row"><span class="scale-end">Never</span><div class="scale-nums"><label><input type="radio" name="s1" value="1"><span>1</span></label><label><input type="radio" name="s1" value="2"><span>2</span></label><label><input type="radio" name="s1" value="3"><span>3</span></label><label><input type="radio" name="s1" value="4"><span>4</span></label><label><input type="radio" name="s1" value="5"><span>5</span></label><label><input type="radio" name="s1" value="6"><span>6</span></label><label><input type="radio" name="s1" value="7"><span>7</span></label><label><input type="radio" name="s1" value="8"><span>8</span></label><label><input type="radio" name="s1" value="9"><span>9</span></label><label><input type="radio" name="s1" value="10"><span>10</span></label></div><span class="scale-end">Always</span></div>
+  </div>
+  <div class="scale-block">
+    <div class="scale-question">I chose my goals — they were not absorbed from others' expectations</div>
+    <div class="scale-row"><span class="scale-end">Never</span><div class="scale-nums"><label><input type="radio" name="s2" value="1"><span>1</span></label><label><input type="radio" name="s2" value="2"><span>2</span></label><label><input type="radio" name="s2" value="3"><span>3</span></label><label><input type="radio" name="s2" value="4"><span>4</span></label><label><input type="radio" name="s2" value="5"><span>5</span></label><label><input type="radio" name="s2" value="6"><span>6</span></label><label><input type="radio" name="s2" value="7"><span>7</span></label><label><input type="radio" name="s2" value="8"><span>8</span></label><label><input type="radio" name="s2" value="9"><span>9</span></label><label><input type="radio" name="s2" value="10"><span>10</span></label></div><span class="scale-end">Always</span></div>
+  </div>
+  <div class="scale-block">
+    <div class="scale-question">My daily actions align with what I say I am building toward</div>
+    <div class="scale-row"><span class="scale-end">Never</span><div class="scale-nums"><label><input type="radio" name="s3" value="1"><span>1</span></label><label><input type="radio" name="s3" value="2"><span>2</span></label><label><input type="radio" name="s3" value="3"><span>3</span></label><label><input type="radio" name="s3" value="4"><span>4</span></label><label><input type="radio" name="s3" value="5"><span>5</span></label><label><input type="radio" name="s3" value="6"><span>6</span></label><label><input type="radio" name="s3" value="7"><span>7</span></label><label><input type="radio" name="s3" value="8"><span>8</span></label><label><input type="radio" name="s3" value="9"><span>9</span></label><label><input type="radio" name="s3" value="10"><span>10</span></label></div><span class="scale-end">Always</span></div>
+  </div>
+  <div class="scale-block">
+    <div class="scale-question">I move through each day with quiet, magnetic confidence and direction</div>
+    <div class="scale-row"><span class="scale-end">Never</span><div class="scale-nums"><label><input type="radio" name="s4" value="1"><span>1</span></label><label><input type="radio" name="s4" value="2"><span>2</span></label><label><input type="radio" name="s4" value="3"><span>3</span></label><label><input type="radio" name="s4" value="4"><span>4</span></label><label><input type="radio" name="s4" value="5"><span>5</span></label><label><input type="radio" name="s4" value="6"><span>6</span></label><label><input type="radio" name="s4" value="7"><span>7</span></label><label><input type="radio" name="s4" value="8"><span>8</span></label><label><input type="radio" name="s4" value="9"><span>9</span></label><label><input type="radio" name="s4" value="10"><span>10</span></label></div><span class="scale-end">Always</span></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-title">Goal Audit — What Are You Actually Chasing?</div>
+  <div class="callout"><strong>The Test:</strong> Identity-based goals harden your purpose — guiding every glance, every word, every move. A goal that doesn't pull you is not your goal. It is your obligation.</div>
+  <p style="font-size:14px;color:var(--text);margin-bottom:14px;">List your top 3 current goals. For each, write WHY it matters in one raw, honest sentence:</p>
+  <div class="field-group">
+    <div class="field-row"><span class="field-num">1</span><textarea placeholder="Goal 1 and why it matters…"></textarea></div>
+    <div class="field-row"><span class="field-num">2</span><textarea placeholder="Goal 2 and why it matters…"></textarea></div>
+    <div class="field-row"><span class="field-num">3</span><textarea placeholder="Goal 3 and why it matters…"></textarea></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-title">Desire Mapping — What Would You Chase If No One Was Judging?</div>
+  <p style="font-size:14px;color:var(--text);margin-bottom:14px;">If fear and approval had no say, what direction would your life be moving toward right now?</p>
+  <div class="field-group">
+    <div class="field-row"><span class="field-num">1</span><textarea placeholder="Desire 1…"></textarea></div>
+    <div class="field-row"><span class="field-num">2</span><textarea placeholder="Desire 2…"></textarea></div>
+    <div class="field-row"><span class="field-num">3</span><textarea placeholder="Desire 3…"></textarea></div>
+    <div class="field-row"><span class="field-num">4</span><textarea placeholder="Desire 4…"></textarea></div>
+    <div class="field-row"><span class="field-num">5</span><textarea placeholder="Desire 5…"></textarea></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-title">Build Your Identity-Based Goals</div>
+  <p style="font-size:14px;color:var(--text);margin-bottom:14px;">Rewrite each goal as an identity statement. Not "I want" — but <em style="color:var(--gold);">"I am the man who ___"</em>:</p>
+  <div class="field-group">
+    <div class="field-row"><span class="field-num">1</span><textarea placeholder="I am the man who…"></textarea></div>
+    <div class="field-row"><span class="field-num">2</span><textarea placeholder="I am the man who…"></textarea></div>
+    <div class="field-row"><span class="field-num">3</span><textarea placeholder="I am the man who…"></textarea></div>
+    <div class="field-row"><span class="field-num">4</span><textarea placeholder="I am the man who…"></textarea></div>
+    <div class="field-row"><span class="field-num">5</span><textarea placeholder="I am the man who…"></textarea></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-title">90 / 30 / 7 — Break One Goal Into Concrete Levels</div>
+  <div class="target-box">
+    <label>90-Day Target — What does success look like in 90 days? Be specific enough to measure:</label>
+    <textarea placeholder="In 90 days I will have…"></textarea>
+  </div>
+  <div class="target-box">
+    <label>30-Day Milestone — What must be true in 30 days to know you are on track?</label>
+    <textarea placeholder="In 30 days I will have…"></textarea>
+  </div>
+  <div class="target-box">
+    <label>This Week's Action — One action you will take before this week ends. Name it:</label>
+    <textarea placeholder="This week I will…"></textarea>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-title">Power Question</div>
+  <div class="callout">A man with clear direction changes the energy in every room he enters. <strong>What would change in how you carry yourself if your purpose was completely locked in?</strong></div>
+  <div class="field-group">
+    <div class="field-row"><span class="field-num">1</span><textarea placeholder="Reflection…"></textarea></div>
+    <div class="field-row"><span class="field-num">2</span><textarea placeholder="Reflection…"></textarea></div>
+    <div class="field-row"><span class="field-num">3</span><textarea placeholder="Reflection…"></textarea></div>
+    <div class="field-row"><span class="field-num">4</span><textarea placeholder="Reflection…"></textarea></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-title">My Commitment This Week</div>
+  <div class="commitment-box">
+    <label>I commit to:</label>
+    <textarea placeholder="Write your commitment…"></textarea>
+    <div class="sig-row">
+      <div class="sig-field"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;">Signed</label><input type="text" placeholder="Your name"></div>
+      <div class="sig-field"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;">Date</label><input type="date"></div>
+    </div>
+  </div>
+
+  <div class="action-bar">
+    <button class="btn-print" onclick="window.print()">🖨 Print / Save as PDF</button>
+    <a href="/" class="btn-back">← Back to Portal</a>
+  </div>
+</div>
+</body>
+</html>

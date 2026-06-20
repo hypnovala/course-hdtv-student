@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Module 1 — Control Your Mind First | HDTV Fill-In</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:#0a0a0a; --dark:#111318; --card:#161b24; --border:#1e2535;
+    --gold:#c9a84c; --gold-light:#e8c97a; --gold-dim:rgba(201,168,76,0.12);
+    --white:#f5f2ec; --muted:#7a8099; --text:#d4cfc6; --cyan:#00D4FF;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--black);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;}
+
+  /* TOP BAR */
+  .topbar{background:var(--gold);color:#000;text-align:center;padding:9px 24px;font-size:12px;font-weight:600;letter-spacing:0.06em;}
+  .topbar a{color:#000;text-decoration:none;font-weight:700;}
+
+  /* HEADER */
+  header{background:rgba(10,10,10,0.97);border-bottom:1px solid var(--border);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .logo-badge{width:36px;height:36px;background:linear-gradient(135deg,var(--gold),#8b6b20);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:16px;color:#000;}
+  .logo-text span{display:block;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;line-height:1.1;}
+  .logo-text small{font-size:10px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;}
+  .header-tag{font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--border);padding:4px 12px;border-radius:2px;}
+
+  /* PAGE WRAP */
+  .page{max-width:760px;margin:0 auto;padding:56px 24px 80px;}
+
+  /* MODULE BADGE */
+  .mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold-dim);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;padding:6px 14px;border-radius:2px;margin-bottom:24px;}
+
+  /* PAGE TITLE */
+  .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,46px);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:8px;}
+  .page-subtitle{color:var(--muted);font-size:14px;margin-bottom:40px;font-style:italic;}
+
+  /* DIVIDER */
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:36px 0;}
+
+  /* SECTION TITLE */
+  .section-title{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+
+  /* CALLOUT BOX */
+  .callout{background:linear-gradient(135deg,rgba(201,168,76,0.06),rgba(201,168,76,0.02));border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:16px 20px;margin:20px 0 28px;font-style:italic;font-size:14px;color:var(--text);line-height:1.7;}
+  .callout strong{color:var(--gold);font-style:normal;}
+
+  /* SCALE ROW */
+  .scale-block{margin-bottom:24px;}
+  .scale-question{font-size:14px;color:var(--white);margin-bottom:10px;line-height:1.5;}
+  .scale-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .scale-end{font-size:11px;color:var(--muted);letter-spacing:0.04em;white-space:nowrap;}
+  .scale-nums{display:flex;gap:4px;}
+  .scale-nums label{cursor:pointer;}
+  .scale-nums input[type=radio]{display:none;}
+  .scale-nums input[type=radio]+span{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1px solid var(--border);font-size:12px;color:var(--muted);transition:all 0.15s;user-select:none;}
+  .scale-nums input[type=radio]:checked+span{background:var(--gold);border-color:var(--gold);color:#000;font-weight:700;}
+  .scale-nums label:hover span{border-color:var(--gold);color:var(--gold);}
+
+  /* TEXT FIELDS */
+  .field-group{display:flex;flex-direction:column;gap:12px;margin-bottom:8px;}
+  .field-row{display:flex;align-items:flex-start;gap:10px;}
+  .field-num{min-width:20px;font-size:13px;color:var(--gold);font-weight:600;padding-top:10px;}
+  .field-row textarea, .field-row input[type=text]{flex:1;background:#0c0f16;border:1px solid var(--border);border-radius:5px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 14px;resize:vertical;line-height:1.6;min-height:42px;outline:none;transition:border-color 0.2s;}
+  .field-row textarea{min-height:64px;}
+  .field-row textarea:focus,.field-row input[type=text]:focus{border-color:rgba(201,168,76,0.45);}
+  .full-textarea{width:100%;background:#0c0f16;border:1px solid var(--border);border-radius:5px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px;resize:vertical;min-height:80px;outline:none;line-height:1.6;transition:border-color 0.2s;}
+  .full-textarea:focus{border-color:rgba(201,168,76,0.45);}
+
+  /* TRACKER TABLE */
+  .tracker-wrap{overflow-x:auto;margin:8px 0;}
+  table{width:100%;border-collapse:collapse;min-width:460px;}
+  th{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding:10px 8px;text-align:center;border-bottom:1px solid var(--border);}
+  td{padding:10px 8px;text-align:center;border-bottom:1px solid rgba(30,37,53,0.5);}
+  td:first-child{text-align:left;font-size:13px;color:var(--text);white-space:nowrap;}
+  .check-cell input[type=checkbox]{width:18px;height:18px;accent-color:var(--gold);cursor:pointer;}
+  .score-cell input[type=number]{width:48px;background:#0c0f16;border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;padding:4px 6px;text-align:center;outline:none;}
+  .score-cell input[type=number]:focus{border-color:rgba(201,168,76,0.45);}
+
+  /* DISCIPLINE LIST */
+  .discipline-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:8px 0 20px;}
+  .discipline-item{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:6px;}
+  .discipline-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px;}
+  .discipline-text{font-size:13px;color:var(--text);line-height:1.6;}
+  .discipline-text strong{color:var(--white);}
+
+  /* COMMITMENT */
+  .commitment-box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:28px 24px;margin-top:8px;}
+  .commitment-box label{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;}
+  .commitment-box textarea{width:100%;background:#0a0c10;border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 14px;resize:vertical;min-height:64px;outline:none;line-height:1.6;transition:border-color 0.2s;}
+  .commitment-box textarea:focus{border-color:rgba(201,168,76,0.45);}
+  .sig-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+  .sig-field input{width:100%;background:#0a0c10;border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 14px;outline:none;transition:border-color 0.2s;}
+  .sig-field input:focus{border-color:rgba(201,168,76,0.45);}
+
+  /* SAVE / PRINT BUTTONS */
+  .action-bar{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:32px;border-top:1px solid var(--border);}
+  .btn-print{background:var(--gold);color:#000;border:none;padding:12px 28px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;}
+  .btn-print:hover{background:var(--gold-light);}
+  .btn-back{background:transparent;border:1px solid var(--border);color:var(--muted);padding:12px 24px;border-radius:4px;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:border-color 0.2s,color 0.2s;}
+  .btn-back:hover{border-color:var(--gold);color:var(--gold);}
+
+  @media print{
+    .topbar,.header-tag,.action-bar,header{display:none!important;}
+    body{background:#fff;color:#111;}
+    .page{padding:20px;}
+    .full-textarea,.field-row textarea,.field-row input[type=text],.commitment-box textarea,.sig-field input,.score-cell input{background:#fff;border:1px solid #ccc;color:#111;}
+    .callout{background:#f9f7f0;border-left:3px solid #c9a84c;}
+    .commitment-box{background:#f9f7f0;border:1px solid #ddd;}
+    .discipline-item{background:#f5f5f5;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">🔒 Enrolled Students Only &nbsp;|&nbsp; <a href="/">← Return to Course Portal</a></div>
+
+<header>
+  <a href="/" class="logo">
+    <div class="logo-badge">HD</div>
+    <div class="logo-text"><span>HDTV</span><small>Training Portal</small></div>
+  </a>
+  <div class="header-tag">Module 1 Worksheet</div>
+</header>
+
+<div class="page">
+
+  <div class="mod-badge">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    Module 01
+  </div>
+  <h1 class="page-title">Control Your Mind First</h1>
+  <p class="page-subtitle">Before any woman ever feels your touch — you will command your own attention.</p>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 1: SCALES -->
+  <div class="section-title">Where Is Your Attention Right Now?</div>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Rate each statement as it is true for you today (1 = never, 10 = always):</p>
+
+  <div class="scale-block">
+    <div class="scale-question">I choose where my attention goes — it doesn't choose me</div>
+    <div class="scale-row">
+      <span class="scale-end">Never</span>
+      <div class="scale-nums">
+        <label><input type="radio" name="s1" value="1"><span>1</span></label>
+        <label><input type="radio" name="s1" value="2"><span>2</span></label>
+        <label><input type="radio" name="s1" value="3"><span>3</span></label>
+        <label><input type="radio" name="s1" value="4"><span>4</span></label>
+        <label><input type="radio" name="s1" value="5"><span>5</span></label>
+        <label><input type="radio" name="s1" value="6"><span>6</span></label>
+        <label><input type="radio" name="s1" value="7"><span>7</span></label>
+        <label><input type="radio" name="s1" value="8"><span>8</span></label>
+        <label><input type="radio" name="s1" value="9"><span>9</span></label>
+        <label><input type="radio" name="s1" value="10"><span>10</span></label>
+      </div>
+      <span class="scale-end">Always</span>
+    </div>
+  </div>
+
+  <div class="scale-block">
+    <div class="scale-question">I can hold one thought or task for 20+ minutes without drifting</div>
+    <div class="scale-row">
+      <span class="scale-end">Never</span>
+      <div class="scale-nums">
+        <label><input type="radio" name="s2" value="1"><span>1</span></label>
+        <label><input type="radio" name="s2" value="2"><span>2</span></label>
+        <label><input type="radio" name="s2" value="3"><span>3</span></label>
+        <label><input type="radio" name="s2" value="4"><span>4</span></label>
+        <label><input type="radio" name="s2" value="5"><span>5</span></label>
+        <label><input type="radio" name="s2" value="6"><span>6</span></label>
+        <label><input type="radio" name="s2" value="7"><span>7</span></label>
+        <label><input type="radio" name="s2" value="8"><span>8</span></label>
+        <label><input type="radio" name="s2" value="9"><span>9</span></label>
+        <label><input type="radio" name="s2" value="10"><span>10</span></label>
+      </div>
+      <span class="scale-end">Always</span>
+    </div>
+  </div>
+
+  <div class="scale-block">
+    <div class="scale-question">I do not reach for my phone out of boredom or anxiety</div>
+    <div class="scale-row">
+      <span class="scale-end">Never</span>
+      <div class="scale-nums">
+        <label><input type="radio" name="s3" value="1"><span>1</span></label>
+        <label><input type="radio" name="s3" value="2"><span>2</span></label>
+        <label><input type="radio" name="s3" value="3"><span>3</span></label>
+        <label><input type="radio" name="s3" value="4"><span>4</span></label>
+        <label><input type="radio" name="s3" value="5"><span>5</span></label>
+        <label><input type="radio" name="s3" value="6"><span>6</span></label>
+        <label><input type="radio" name="s3" value="7"><span>7</span></label>
+        <label><input type="radio" name="s3" value="8"><span>8</span></label>
+        <label><input type="radio" name="s3" value="9"><span>9</span></label>
+        <label><input type="radio" name="s3" value="10"><span>10</span></label>
+      </div>
+      <span class="scale-end">Always</span>
+    </div>
+  </div>
+
+  <div class="scale-block">
+    <div class="scale-question">My mind feels calm and directed when I enter a room</div>
+    <div class="scale-row">
+      <span class="scale-end">Never</span>
+      <div class="scale-nums">
+        <label><input type="radio" name="s4" value="1"><span>1</span></label>
+        <label><input type="radio" name="s4" value="2"><span>2</span></label>
+        <label><input type="radio" name="s4" value="3"><span>3</span></label>
+        <label><input type="radio" name="s4" value="4"><span>4</span></label>
+        <label><input type="radio" name="s4" value="5"><span>5</span></label>
+        <label><input type="radio" name="s4" value="6"><span>6</span></label>
+        <label><input type="radio" name="s4" value="7"><span>7</span></label>
+        <label><input type="radio" name="s4" value="8"><span>8</span></label>
+        <label><input type="radio" name="s4" value="9"><span>9</span></label>
+        <label><input type="radio" name="s4" value="10"><span>10</span></label>
+      </div>
+      <span class="scale-end">Always</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 2: ATTENTION AUDIT -->
+  <div class="section-title">The Attention Audit — What Is Your Mind Obeying Right Now?</div>
+  <div class="callout"><strong>Core Truth:</strong> Focused masculine discipline is the most potent force in any room. Women sense a man's mental command before he ever speaks. This starts here.</div>
+
+  <p style="font-size:14px;color:var(--text);margin-bottom:14px;">Name your top 3 attention thieves — what pulls your mind away from what you chose to focus on:</p>
+  <div class="field-group">
+    <div class="field-row"><span class="field-num">1</span><textarea placeholder="First attention thief…"></textarea></div>
+    <div class="field-row"><span class="field-num">2</span><textarea placeholder="Second attention thief…"></textarea></div>
+    <div class="field-row"><span class="field-num">3</span><textarea placeholder="Third attention thief…"></textarea></div>
+  </div>
+
+  <p style="font-size:14px;color:var(--text);margin:20px 0 14px;">When your attention wanders, where does it automatically go? Be brutally honest:</p>
+  <div class="field-group">
+    <div class="field-row"><span class="field-num">1</span><textarea placeholder="Where your mind drifts first…"></textarea></div>
+    <div class="field-row"><span class="field-num">2</span><textarea placeholder="Second place your attention escapes to…"></textarea></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 3: 5 DISCIPLINES -->
+  <div class="section-title">The Masculine Attention Reset — 5 Daily Disciplines</div>
+  <ul class="discipline-list">
+    <li class="discipline-item"><div class="discipline-dot"></div><div class="discipline-text"><strong>Morning anchor:</strong> 10 minutes of silence before the phone. No exceptions.</div></li>
+    <li class="discipline-item"><div class="discipline-dot"></div><div class="discipline-text"><strong>Single-tasking:</strong> One task. Full attention. Nothing else open or running.</div></li>
+    <li class="discipline-item"><div class="discipline-dot"></div><div class="discipline-text"><strong>Phone boundaries:</strong> Three designated times to check. Not constantly, not compulsively.</div></li>
+    <li class="discipline-item"><div class="discipline-dot"></div><div class="discipline-text"><strong>Presence drill:</strong> Before entering any room, pause. Breathe. Choose your state.</div></li>
+    <li class="discipline-item"><div class="discipline-dot"></div><div class="discipline-text"><strong>Evening audit:</strong> Rate your mental command for the day: 1–10. Write it down.</div></li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 4: WEEKLY TRACKER -->
+  <div class="section-title">Weekly Command Tracker</div>
+  <div class="tracker-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align:left;">Discipline</th>
+          <th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Morning anchor done?</td>
+          <td class="check-cell"><input type="checkbox"></td>
+          <td class="check-cell"><input type="checkbox"></td>
+          <td class="check-cell"><input type="checkbox"></td>
+          <td class="check-cell"><input type="checkbox"></td>
+          <td class="check-cell"><input type="checkbox"></td>
+          <td class="check-cell"><input type="checkbox"></td>
+          <td class="check-cell"><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td>Phone discipline held?</td>
+          <td class="check-cell"><input type="checkbox"></td>
+          <td class="check-cell"><input type="checkbox"></td>
+          <td class="check-cell"><input type="checkbox"></td>
+          <td class="check-cell"><input type="checkbox"></td>
+          <td class="check-cell"><input type="checkbox"></td>
+          <td class="check-cell"><input type="checkbox"></td>
+          <td class="check-cell"><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td>Focus score /10</td>
+          <td class="score-cell"><input type="number" min="1" max="10" placeholder="—"></td>
+          <td class="score-cell"><input type="number" min="1" max="10" placeholder="—"></td>
+          <td class="score-cell"><input type="number" min="1" max="10" placeholder="—"></td>
+          <td class="score-cell"><input type="number" min="1" max="10" placeholder="—"></td>
+          <td class="score-cell"><input type="number" min="1" max="10" placeholder="—"></td>
+          <td class="score-cell"><input type="number" min="1" max="10" placeholder="—"></td>
+          <td class="score-cell"><input type="number" min="1" max="10" placeholder="—"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 5: POWER QUESTION -->
+  <div class="section-title">Power Question</div>
+  <div class="callout">Your future self — forged by discipline — is watching how you spend your attention today. <strong>What would he tell you to stop doing right now?</strong></div>
+  <div class="field-group">
+    <div class="field-row"><span class="field-num">1</span><textarea placeholder="Reflection…"></textarea></div>
+    <div class="field-row"><span class="field-num">2</span><textarea placeholder="Reflection…"></textarea></div>
+    <div class="field-row"><span class="field-num">3</span><textarea placeholder="Reflection…"></textarea></div>
+    <div class="field-row"><span class="field-num">4</span><textarea placeholder="Reflection…"></textarea></div>
+    <div class="field-row"><span class="field-num">5</span><textarea placeholder="Reflection…"></textarea></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- COMMITMENT -->
+  <div class="section-title">My Commitment This Week</div>
+  <div class="commitment-box">
+    <label>I commit to:</label>
+    <textarea placeholder="Write your commitment…"></textarea>
+    <div class="sig-row">
+      <div class="sig-field">
+        <label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;">Signed</label>
+        <input type="text" placeholder="Your name">
+      </div>
+      <div class="sig-field">
+        <label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;">Date</label>
+        <input type="date">
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTION BAR -->
+  <div class="action-bar">
+    <button class="btn-print" onclick="window.print()">🖨 Print / Save as PDF</button>
+    <a href="/" class="btn-back">← Back to Portal</a>
+  </div>
+
+</div>
+</body>
+</html>
