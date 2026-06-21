@@ -848,36 +848,13 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 0;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 8px;
-      cursor: pointer;
-      user-select: none;
     }
 
     .meditation-label svg { color: var(--gold); }
-
-    .meditation-toggle-icon {
-      margin-left: auto;
-      font-size: 15px;
-      line-height: 1;
-      color: var(--gold);
-      transition: transform 0.2s;
-    }
-
-    .meditation-section.open .meditation-toggle-icon {
-      transform: rotate(45deg);
-    }
-
-    .meditation-body {
-      display: none;
-      margin-top: 16px;
-    }
-
-    .meditation-section.open .meditation-body {
-      display: block;
-    }
 
     .meditation-video-wrap {
       position: relative;
@@ -1109,34 +1086,31 @@
           </div>
           <!-- HYPNOTIC MEDITATION — MOD 01 -->
           <div class="meditation-section">
-            <div class="meditation-label" onclick="toggleMeditation(this)">
+            <div class="meditation-label">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
               Watch Your Hypnotic Meditation
-              <span class="meditation-toggle-icon">+</span>
             </div>
-            <div class="meditation-body">
-              <div class="meditation-video-wrap">
-                <div class="meditation-orb">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
-                </div>
-                <div class="meditation-placeholder-text">Hypnotic Meditation — Module 1</div>
-                <div class="meditation-placeholder-sub">meditation_mod01_hdtv.mp4 · Coming Soon</div>
+            <div class="meditation-video-wrap">
+              <div class="meditation-orb">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
               </div>
-              <div class="audio-section">
-                <div class="audio-label">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                  Audio Only
+              <div class="meditation-placeholder-text">Hypnotic Meditation — Module 1</div>
+              <div class="meditation-placeholder-sub">meditation_mod01_hdtv.mp4 · Coming Soon</div>
+            </div>
+            <div class="audio-section">
+              <div class="audio-label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                Audio Only
+              </div>
+              <div class="audio-player-wrap">
+                <div class="audio-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
                 </div>
-                <div class="audio-player-wrap">
-                  <div class="audio-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                  </div>
-                  <audio controls preload="none">
-                    <source src="public/audio/meditation_mod01_hdtv.mp3" type="audio/mpeg">
-                    Your browser does not support audio playback.
-                  </audio>
-                  <span class="audio-filename">meditation_mod01_hdtv.mp3</span>
-                </div>
+                <audio controls preload="none">
+                  <source src="public/audio/meditation_mod01_hdtv.mp3" type="audio/mpeg">
+                  Your browser does not support audio playback.
+                </audio>
+                <span class="audio-filename">meditation_mod01_hdtv.mp3</span>
               </div>
             </div>
           </div>
@@ -1205,34 +1179,31 @@
           </div>
           <!-- HYPNOTIC MEDITATION — MOD 02 -->
           <div class="meditation-section">
-            <div class="meditation-label" onclick="toggleMeditation(this)">
+            <div class="meditation-label">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
               Watch Your Hypnotic Meditation
-              <span class="meditation-toggle-icon">+</span>
             </div>
-            <div class="meditation-body">
-              <div class="meditation-video-wrap">
-                <div class="meditation-orb">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
-                </div>
-                <div class="meditation-placeholder-text">Hypnotic Meditation — Module 2</div>
-                <div class="meditation-placeholder-sub">meditation_mod02_hdtv.mp4 · Coming Soon</div>
+            <div class="meditation-video-wrap">
+              <div class="meditation-orb">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
               </div>
-              <div class="audio-section">
-                <div class="audio-label">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                  Audio Only
+              <div class="meditation-placeholder-text">Hypnotic Meditation — Module 2</div>
+              <div class="meditation-placeholder-sub">meditation_mod02_hdtv.mp4 · Coming Soon</div>
+            </div>
+            <div class="audio-section">
+              <div class="audio-label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                Audio Only
+              </div>
+              <div class="audio-player-wrap">
+                <div class="audio-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
                 </div>
-                <div class="audio-player-wrap">
-                  <div class="audio-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                  </div>
-                  <audio controls preload="none">
-                    <source src="public/audio/meditation_mod02_hdtv.mp3" type="audio/mpeg">
-                    Your browser does not support audio playback.
-                  </audio>
-                  <span class="audio-filename">meditation_mod02_hdtv.mp3</span>
-                </div>
+                <audio controls preload="none">
+                  <source src="public/audio/meditation_mod02_hdtv.mp3" type="audio/mpeg">
+                  Your browser does not support audio playback.
+                </audio>
+                <span class="audio-filename">meditation_mod02_hdtv.mp3</span>
               </div>
             </div>
           </div>
@@ -1301,34 +1272,31 @@
           </div>
           <!-- HYPNOTIC MEDITATION — MOD 03 -->
           <div class="meditation-section">
-            <div class="meditation-label" onclick="toggleMeditation(this)">
+            <div class="meditation-label">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
               Watch Your Hypnotic Meditation
-              <span class="meditation-toggle-icon">+</span>
             </div>
-            <div class="meditation-body">
-              <div class="meditation-video-wrap">
-                <div class="meditation-orb">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
-                </div>
-                <div class="meditation-placeholder-text">Hypnotic Meditation — Module 3</div>
-                <div class="meditation-placeholder-sub">meditation_mod03_hdtv.mp4 · Coming Soon</div>
+            <div class="meditation-video-wrap">
+              <div class="meditation-orb">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
               </div>
-              <div class="audio-section">
-                <div class="audio-label">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                  Audio Only
+              <div class="meditation-placeholder-text">Hypnotic Meditation — Module 3</div>
+              <div class="meditation-placeholder-sub">meditation_mod03_hdtv.mp4 · Coming Soon</div>
+            </div>
+            <div class="audio-section">
+              <div class="audio-label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                Audio Only
+              </div>
+              <div class="audio-player-wrap">
+                <div class="audio-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
                 </div>
-                <div class="audio-player-wrap">
-                  <div class="audio-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                  </div>
-                  <audio controls preload="none">
-                    <source src="public/audio/meditation_mod03_hdtv.mp3" type="audio/mpeg">
-                    Your browser does not support audio playback.
-                  </audio>
-                  <span class="audio-filename">meditation_mod03_hdtv.mp3</span>
-                </div>
+                <audio controls preload="none">
+                  <source src="public/audio/meditation_mod03_hdtv.mp3" type="audio/mpeg">
+                  Your browser does not support audio playback.
+                </audio>
+                <span class="audio-filename">meditation_mod03_hdtv.mp3</span>
               </div>
             </div>
           </div>
@@ -1397,34 +1365,31 @@
           </div>
           <!-- HYPNOTIC MEDITATION — MOD 04 -->
           <div class="meditation-section">
-            <div class="meditation-label" onclick="toggleMeditation(this)">
+            <div class="meditation-label">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
               Watch Your Hypnotic Meditation
-              <span class="meditation-toggle-icon">+</span>
             </div>
-            <div class="meditation-body">
-              <div class="meditation-video-wrap">
-                <div class="meditation-orb">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
-                </div>
-                <div class="meditation-placeholder-text">Hypnotic Meditation — Module 4</div>
-                <div class="meditation-placeholder-sub">meditation_mod04_hdtv.mp4 · Coming Soon</div>
+            <div class="meditation-video-wrap">
+              <div class="meditation-orb">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
               </div>
-              <div class="audio-section">
-                <div class="audio-label">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                  Audio Only
+              <div class="meditation-placeholder-text">Hypnotic Meditation — Module 4</div>
+              <div class="meditation-placeholder-sub">meditation_mod04_hdtv.mp4 · Coming Soon</div>
+            </div>
+            <div class="audio-section">
+              <div class="audio-label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                Audio Only
+              </div>
+              <div class="audio-player-wrap">
+                <div class="audio-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
                 </div>
-                <div class="audio-player-wrap">
-                  <div class="audio-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                  </div>
-                  <audio controls preload="none">
-                    <source src="public/audio/meditation_mod04_hdtv.mp3" type="audio/mpeg">
-                    Your browser does not support audio playback.
-                  </audio>
-                  <span class="audio-filename">meditation_mod04_hdtv.mp3</span>
-                </div>
+                <audio controls preload="none">
+                  <source src="public/audio/meditation_mod04_hdtv.mp3" type="audio/mpeg">
+                  Your browser does not support audio playback.
+                </audio>
+                <span class="audio-filename">meditation_mod04_hdtv.mp3</span>
               </div>
             </div>
           </div>
@@ -1500,34 +1465,31 @@
           </div>
           <!-- HYPNOTIC MEDITATION — MOD 05 -->
           <div class="meditation-section">
-            <div class="meditation-label" onclick="toggleMeditation(this)">
+            <div class="meditation-label">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
               Watch Your Hypnotic Meditation
-              <span class="meditation-toggle-icon">+</span>
             </div>
-            <div class="meditation-body">
-              <div class="meditation-video-wrap">
-                <div class="meditation-orb">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
-                </div>
-                <div class="meditation-placeholder-text">Hypnotic Meditation — Module 5</div>
-                <div class="meditation-placeholder-sub">meditation_mod05_hdtv.mp4 · Coming Soon</div>
+            <div class="meditation-video-wrap">
+              <div class="meditation-orb">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
               </div>
-              <div class="audio-section">
-                <div class="audio-label">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                  Audio Only
+              <div class="meditation-placeholder-text">Hypnotic Meditation — Module 5</div>
+              <div class="meditation-placeholder-sub">meditation_mod05_hdtv.mp4 · Coming Soon</div>
+            </div>
+            <div class="audio-section">
+              <div class="audio-label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                Audio Only
+              </div>
+              <div class="audio-player-wrap">
+                <div class="audio-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
                 </div>
-                <div class="audio-player-wrap">
-                  <div class="audio-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                  </div>
-                  <audio controls preload="none">
-                    <source src="public/audio/meditation_mod05_hdtv.mp3" type="audio/mpeg">
-                    Your browser does not support audio playback.
-                  </audio>
-                  <span class="audio-filename">meditation_mod05_hdtv.mp3</span>
-                </div>
+                <audio controls preload="none">
+                  <source src="public/audio/meditation_mod05_hdtv.mp3" type="audio/mpeg">
+                  Your browser does not support audio playback.
+                </audio>
+                <span class="audio-filename">meditation_mod05_hdtv.mp3</span>
               </div>
             </div>
           </div>
@@ -1589,34 +1551,31 @@
           </div>
           <!-- HYPNOTIC MEDITATION — MOD 06 -->
           <div class="meditation-section">
-            <div class="meditation-label" onclick="toggleMeditation(this)">
+            <div class="meditation-label">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
               Watch Your Hypnotic Meditation
-              <span class="meditation-toggle-icon">+</span>
             </div>
-            <div class="meditation-body">
-              <div class="meditation-video-wrap">
-                <div class="meditation-orb">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
-                </div>
-                <div class="meditation-placeholder-text">Hypnotic Meditation — Module 6</div>
-                <div class="meditation-placeholder-sub">meditation_mod06_hdtv.mp4 · Coming Soon</div>
+            <div class="meditation-video-wrap">
+              <div class="meditation-orb">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
               </div>
-              <div class="audio-section">
-                <div class="audio-label">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                  Audio Only
+              <div class="meditation-placeholder-text">Hypnotic Meditation — Module 6</div>
+              <div class="meditation-placeholder-sub">meditation_mod06_hdtv.mp4 · Coming Soon</div>
+            </div>
+            <div class="audio-section">
+              <div class="audio-label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                Audio Only
+              </div>
+              <div class="audio-player-wrap">
+                <div class="audio-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
                 </div>
-                <div class="audio-player-wrap">
-                  <div class="audio-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                  </div>
-                  <audio controls preload="none">
-                    <source src="public/audio/meditation_mod06_hdtv.mp3" type="audio/mpeg">
-                    Your browser does not support audio playback.
-                  </audio>
-                  <span class="audio-filename">meditation_mod06_hdtv.mp3</span>
-                </div>
+                <audio controls preload="none">
+                  <source src="public/audio/meditation_mod06_hdtv.mp3" type="audio/mpeg">
+                  Your browser does not support audio playback.
+                </audio>
+                <span class="audio-filename">meditation_mod06_hdtv.mp3</span>
               </div>
             </div>
           </div>
@@ -1922,11 +1881,6 @@
   function toggleModule(headerEl) {
     const card = headerEl.closest('.module-card');
     card.classList.toggle('open');
-  }
-
-  function toggleMeditation(labelEl) {
-    const section = labelEl.closest('.meditation-section');
-    section.classList.toggle('open');
   }
 </script>
 
