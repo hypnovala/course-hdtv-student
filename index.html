@@ -636,13 +636,24 @@
 
     .instructor-wrap {
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 56px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
       align-items: start;
     }
 
+    .instructor-card {
+      background: linear-gradient(180deg, rgba(18, 20, 26, 0.96), rgba(9, 10, 14, 0.98));
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      height: 100%;
+    }
+
     .instructor-photo {
-      aspect-ratio: 3/4;
+      aspect-ratio: 4/3;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -662,25 +673,17 @@
       text-transform: uppercase;
     }
 
-    .instructor-bio h2 {
+    .instructor-bio h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
+      font-size: 30px;
       font-weight: 700;
       color: var(--white);
-      margin-bottom: 4px;
-    }
-
-    .instructor-bio .title {
-      font-size: 13px;
-      color: var(--gold);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 8px;
     }
 
     .instructor-bio p {
       color: var(--muted);
-      margin-bottom: 14px;
+      margin: 0;
       font-size: 15px;
     }
 
@@ -831,13 +834,177 @@
       .footer-main { grid-template-columns: 1fr; }
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* ─── HYPNOTIC MEDITATION PLACEHOLDER ───── */
+    .meditation-section {
+      margin: 28px 0 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .meditation-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .meditation-label svg { color: var(--gold); }
+
+    .meditation-toggle-icon {
+      margin-left: auto;
+      font-size: 15px;
+      line-height: 1;
+      color: var(--gold);
+      transition: transform 0.2s;
+    }
+
+    .meditation-section.open .meditation-toggle-icon {
+      transform: rotate(45deg);
+    }
+
+    .meditation-body {
+      display: none;
+      margin-top: 16px;
+    }
+
+    .meditation-section.open .meditation-body {
+      display: block;
+    }
+
+    .meditation-video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #080b10 0%, #0d1020 100%);
+      border-radius: 8px;
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      overflow: hidden;
+    }
+
+    .meditation-video-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,212,255,0.05) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 30% at 50% 20%, rgba(201,168,76,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .meditation-orb {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, rgba(0,212,255,0.18), rgba(201,168,76,0.08) 60%, transparent);
+      border: 1.5px solid rgba(0,212,255,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: meditationPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes meditationPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0,212,255,0.12), 0 0 24px rgba(0,212,255,0.06); }
+      50%       { box-shadow: 0 0 0 12px rgba(0,212,255,0.04), 0 0 40px rgba(0,212,255,0.12); }
+    }
+
+    .meditation-orb svg { color: rgba(0,212,255,0.7); }
+
+    .meditation-placeholder-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      color: rgba(245,242,236,0.55);
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    .meditation-placeholder-sub {
+      font-size: 11px;
+      color: rgba(0,212,255,0.4);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* ─── AUDIO ONLY PLAYER ──────────────────── */
+    .audio-section {
+      margin-top: 16px;
+    }
+
+    .audio-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .audio-label svg { color: var(--gold); }
+
+    .audio-player-wrap {
+      background: #0c0f14;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .audio-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      border: 1px solid rgba(201,168,76,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    .audio-player-wrap audio {
+      flex: 1;
+      height: 32px;
+      outline: none;
+      border-radius: 4px;
+      accent-color: var(--gold);
+    }
+
+    .audio-filename {
+      font-size: 11px;
+      color: rgba(201,168,76,0.45);
+      font-family: monospace;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
   </style>
 </head>
 <body>
 
 <!-- ANNOUNCEMENT BAR -->
 <div class="topbar">
-  🔒 Enrolled Students Only — course.hypnoticdreamtv.com &nbsp;|&nbsp; Questions? support@hypnoticdreamtv.com
+  🔒 Enrolled Students Only — course.hypnoticdreamtv.com &nbsp;|&nbsp; Questions? Contact Brock Director at hypoticalstv@gmail.com
 </div>
 
 <!-- ─── HEADER ──────────────────────────────────── -->
@@ -872,7 +1039,7 @@
   <div class="hero-meta">
     <div class="hero-meta-item">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      7 Modules · 4 Weekly Lessons each
+      6 Modules · 4 Weekly Lessons each
     </div>
     <div class="hero-meta-item">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -893,11 +1060,11 @@
 <div class="stats-strip">
   <div class="stats-inner">
     <div>
-      <div class="stat-val">7</div>
+      <div class="stat-val">6</div>
       <div class="stat-lbl">Core Modules</div>
     </div>
     <div>
-      <div class="stat-val">28</div>
+      <div class="stat-val">12</div>
       <div class="stat-lbl">Video Lessons</div>
     </div>
     <div>
@@ -910,7 +1077,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- ─── MODULES ───────────────────────────────────── -->
 <section id="modules" style="background:var(--dark);">
@@ -926,46 +1092,92 @@
         <div class="module-header" onclick="toggleModule(this)">
           <div class="module-num">01</div>
           <div class="module-info">
-            <h3>Reclaim Your Wandering Attention</h3>
-            <p>Theme: Focus and Intentionality</p>
+            <h3>Control Your Mind First</h3>
+            <p>Theme: Attention Command</p>
           </div>
           <button class="module-toggle">+</button>
         </div>
         <div class="module-body">
-          <div class="video-placeholder">
-            <div class="video-play-btn">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-            <span class="video-label">Module 1 — Video Lesson</span>
-            <span class="video-filename">mod_videohdtv.mp4</span>
+          <div style="width:100%; aspect-ratio:16/9; background:#0c0f14; border-radius:6px; margin:24px 0; overflow:hidden;">
+            <video controls preload="metadata" style="width:100%; height:100%; display:block;">
+              <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/Module01_HDTV_nsfwfullmod01_part2_music.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="progress-wrap">
             <div class="progress-label"><span>Your Progress</span><span>0%</span></div>
             <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
           </div>
+          <!-- HYPNOTIC MEDITATION — MOD 01 -->
+          <div class="meditation-section">
+            <div class="meditation-label" onclick="toggleMeditation(this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
+              Watch Your Hypnotic Meditation
+              <span class="meditation-toggle-icon">+</span>
+            </div>
+            <div class="meditation-body">
+              <div class="meditation-video-wrap" style="border-style:solid; padding:0;">
+                <video controls preload="metadata" style="width:100%; height:100%; display:block; position:relative; z-index:1;">
+                  <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/HDTV_Fanvue_Vert_softvoice_Pull-of-Success.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="audio-section">
+                <div class="audio-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Audio Only
+                </div>
+                <div class="audio-player-wrap">
+                  <div class="audio-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  </div>
+                  <audio controls preload="none">
+                    <source src="public/audio/meditation_mod01_hdtv.MP3" type="audio/mpeg">
+                    Your browser does not support audio playback.
+                  </audio>
+                  <span class="audio-filename">meditation_mod01_hdtv.mp3</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <ul class="lessons-list">
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
               <div class="lesson-content">
-                <h4>Worksheet 1 — Attention Self-Assessment</h4>
-                <p>Audit where your attention is actually going. No right answers — honest reflection only.</p>
+                <h4>Attention Command Scales</h4>
+                <p>Rate where your attention is being controlled versus where you are in command of it.</p>
               </div>
             </li>
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
               <div class="lesson-content">
-                <h4>Daily Attention Practices</h4>
-                <p>Five trainable habits — pick the one that addresses your specific weakness this week.</p>
+                <h4>Attention Audit</h4>
+                <p>A full diagnostic of where your focus goes, what steals it, and when you're most vulnerable.</p>
               </div>
             </li>
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
               <div class="lesson-content">
-                <h4>Weekly Commitment — Name Your Boundary</h4>
-                <p>One concrete attention boundary you will hold for seven days. Specific enough to measure.</p>
+                <h4>5 Masculine Discipline Practices</h4>
+                <p>Five concrete practices to build the attention muscle. Pick one to implement daily this week.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="8" x2="12" y2="16"/></svg></div>
+              <div class="lesson-content">
+                <h4>Weekly Command Tracker</h4>
+                <p>Track your attention wins and losses daily. Seven days, one line each. Patterns reveal themselves.</p>
               </div>
             </li>
           </ul>
+          <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--border); display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <a href="public/documents/M1_WS_Control_Your_Mind.pdf" download class="btn-course" style="display:inline-flex; align-items:center; gap:8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Worksheet PDF
+            </a>
+            <a href="public/fillins/M1_fillin.html" target="_blank" class="btn-course" style="display:inline-flex; align-items:center; gap:8px; border-color:rgba(0,212,255,0.5); color:#00D4FF;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Fill In Online
+            </a>
+          </div>
         </div>
       </div>
 
@@ -974,46 +1186,92 @@
         <div class="module-header" onclick="toggleModule(this)">
           <div class="module-num">02</div>
           <div class="module-info">
-            <h3>Turn Raw Desire Into Focused Power</h3>
-            <p>Theme: Drive and Transmutation</p>
+            <h3>Goal Setting for Men</h3>
+            <p>Theme: Purpose & Direction</p>
           </div>
           <button class="module-toggle">+</button>
         </div>
         <div class="module-body">
-          <div class="video-placeholder">
-            <div class="video-play-btn">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-            <span class="video-label">Module 2 — Video Lesson</span>
-            <span class="video-filename">mod_videohdtv.mp4</span>
+          <div style="width:100%; aspect-ratio:16/9; background:#0c0f14; border-radius:6px; margin:24px 0; overflow:hidden;">
+            <video controls preload="metadata" style="width:100%; height:100%; display:block;">
+              <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/Module02_HDTV_fullmod02_final01.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="progress-wrap">
             <div class="progress-label"><span>Your Progress</span><span>0%</span></div>
             <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
           </div>
+          <!-- HYPNOTIC MEDITATION — MOD 02 -->
+          <div class="meditation-section">
+            <div class="meditation-label" onclick="toggleMeditation(this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
+              Watch Your Hypnotic Meditation
+              <span class="meditation-toggle-icon">+</span>
+            </div>
+            <div class="meditation-body">
+              <div class="meditation-video-wrap" style="border-style:solid; padding:0;">
+                <video controls preload="metadata" style="width:100%; height:100%; display:block; position:relative; z-index:1;">
+                  <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/HDTV_Fanvue_169_script_deepgoals.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="audio-section">
+                <div class="audio-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Audio Only
+                </div>
+                <div class="audio-player-wrap">
+                  <div class="audio-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  </div>
+                  <audio controls preload="none">
+                    <source src="public/audio/meditation_mod02_hdtv.MP3" type="audio/mpeg">
+                    Your browser does not support audio playback.
+                  </audio>
+                  <span class="audio-filename">meditation_mod02_hdtv.mp3</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <ul class="lessons-list">
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
               <div class="lesson-content">
-                <h4>Desire Inventory</h4>
-                <p>Write what you actually want — not the sanitized version. This requires real honesty.</p>
+                <h4>Goal Audit</h4>
+                <p>An honest look at the goals you've set and abandoned. Why they failed reveals everything.</p>
               </div>
             </li>
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
               <div class="lesson-content">
-                <h4>The Transmutation Map</h4>
-                <p>For every desire named, identify a focused action that channels that energy productively.</p>
+                <h4>Desire Mapping</h4>
+                <p>What do you actually want? Write it raw. Then identify the gap between who you are now and who must exist to have it.</p>
               </div>
             </li>
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
               <div class="lesson-content">
-                <h4>Your Power Statement</h4>
-                <p>A declaration — not an affirmation. Something you are committing to make true. Read it aloud.</p>
+                <h4>Identity-Based Goal Builder — "I Am the Man Who…"</h4>
+                <p>Build goals from the identity level. Every goal becomes a declaration of who you are becoming.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="8" x2="12" y2="16"/></svg></div>
+              <div class="lesson-content">
+                <h4>90/30/7 Reality Map</h4>
+                <p>90-day vision, 30-day milestone, 7-day action. The discipline of working all three levels simultaneously.</p>
               </div>
             </li>
           </ul>
+          <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--border); display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <a href="public/documents/M2_WS_Goal_Setting_for_Men.pdf" download class="btn-course" style="display:inline-flex; align-items:center; gap:8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Worksheet PDF
+            </a>
+            <a href="public/fillins/M2_fillin.html" target="_blank" class="btn-course" style="display:inline-flex; align-items:center; gap:8px; border-color:rgba(0,212,255,0.5); color:#00D4FF;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Fill In Online
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1022,46 +1280,92 @@
         <div class="module-header" onclick="toggleModule(this)">
           <div class="module-num">03</div>
           <div class="module-info">
-            <h3>Build That Calm, Unshakable Masculine Edge</h3>
-            <p>Theme: Composure and Presence</p>
+            <h3>Dopamine & Porn Awareness</h3>
+            <p>Theme: Energy Recovery & Redirect</p>
           </div>
           <button class="module-toggle">+</button>
         </div>
         <div class="module-body">
-          <div class="video-placeholder">
-            <div class="video-play-btn">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-            <span class="video-label">Module 3 — Video Lesson</span>
-            <span class="video-filename">mod_videohdtv.mp4</span>
+          <div style="width:100%; aspect-ratio:16/9; background:#0c0f14; border-radius:6px; margin:24px 0; overflow:hidden;">
+            <video controls preload="metadata" style="width:100%; height:100%; display:block;">
+              <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/Module03_HDTV_final_.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="progress-wrap">
             <div class="progress-label"><span>Your Progress</span><span>0%</span></div>
             <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
           </div>
+          <!-- HYPNOTIC MEDITATION — MOD 03 -->
+          <div class="meditation-section">
+            <div class="meditation-label" onclick="toggleMeditation(this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
+              Watch Your Hypnotic Meditation
+              <span class="meditation-toggle-icon">+</span>
+            </div>
+            <div class="meditation-body">
+              <div class="meditation-video-wrap" style="border-style:solid; padding:0;">
+                <video controls preload="metadata" style="width:100%; height:100%; display:block; position:relative; z-index:1;">
+                  <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/BiAnal_Hypnosis_02.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="audio-section">
+                <div class="audio-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Audio Only
+                </div>
+                <div class="audio-player-wrap">
+                  <div class="audio-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  </div>
+                  <audio controls preload="none">
+                    <source src="public/audio/meditation_mod03_hdtv.MP3" type="audio/mpeg">
+                    Your browser does not support audio playback.
+                  </audio>
+                  <span class="audio-filename">meditation_mod03_hdtv.mp3</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <ul class="lessons-list">
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
               <div class="lesson-content">
-                <h4>The Pressure Map</h4>
-                <p>Identify where your specific edges are. Most men are solid in some areas and fragile in others.</p>
+                <h4>Edge Assessment</h4>
+                <p>Rate your current relationship with dopamine, screens, and pornography. No judgment — just data.</p>
               </div>
             </li>
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
               <div class="lesson-content">
-                <h4>The Five Pillars: Breath, Body, Pause, Frame, Silence</h4>
-                <p>Focus on the one pillar that will make the biggest difference for you right now.</p>
+                <h4>Craving Pattern Analysis</h4>
+                <p>When does it hit? What triggers it? Map your specific craving cycle with precision.</p>
               </div>
             </li>
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
               <div class="lesson-content">
-                <h4>Composure Challenge</h4>
-                <p>Name one real situation this week. Decide in advance how the strongest version of you handles it.</p>
+                <h4>The Redirect Protocol — Not Suppress, Channel</h4>
+                <p>The redirect is not willpower. It is a specific sequence for turning the craving into productive fuel.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="8" x2="12" y2="16"/></svg></div>
+              <div class="lesson-content">
+                <h4>30-Day Edge Recovery Tracker</h4>
+                <p>Numbered circles — one per day. Each day you hold, you mark one. The streak becomes the identity.</p>
               </div>
             </li>
           </ul>
+          <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--border); display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <a href="public/documents/M3_WS_Dopamine_Porn_Awareness.pdf" download class="btn-course" style="display:inline-flex; align-items:center; gap:8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Worksheet PDF
+            </a>
+            <a href="public/fillins/M3_fillin.html" target="_blank" class="btn-course" style="display:inline-flex; align-items:center; gap:8px; border-color:rgba(0,212,255,0.5); color:#00D4FF;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Fill In Online
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1070,46 +1374,99 @@
         <div class="module-header" onclick="toggleModule(this)">
           <div class="module-num">04</div>
           <div class="module-info">
-            <h3>Become the Man She Can't Stop Thinking About</h3>
-            <p>Theme: Presence, Polarity and Purpose</p>
+            <h3>Self Respect & Boundaries</h3>
+            <p>Theme: Standards & Integrity</p>
           </div>
           <button class="module-toggle">+</button>
         </div>
         <div class="module-body">
-          <div class="video-placeholder">
-            <div class="video-play-btn">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-            <span class="video-label">Module 4 — Video Lesson</span>
-            <span class="video-filename">mod_videohdtv.mp4</span>
+          <div style="width:100%; aspect-ratio:16/9; background:#0c0f14; border-radius:6px; margin:24px 0; overflow:hidden;">
+            <video controls preload="metadata" style="width:100%; height:100%; display:block;">
+              <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/Module04_HDTV_0618_final01.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="progress-wrap">
             <div class="progress-label"><span>Your Progress</span><span>0%</span></div>
             <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
           </div>
+          <!-- HYPNOTIC MEDITATION — MOD 04 -->
+          <div class="meditation-section">
+            <div class="meditation-label" onclick="toggleMeditation(this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
+              Watch Your Hypnotic Meditation
+              <span class="meditation-toggle-icon">+</span>
+            </div>
+            <div class="meditation-body">
+              <div class="meditation-video-wrap" style="border-style:solid; padding:0;">
+                <video controls preload="metadata" style="width:100%; height:100%; display:block; position:relative; z-index:1;">
+                  <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/XXExtreme_Wordpress_Erica01.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="audio-section">
+                <div class="audio-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Audio Only
+                </div>
+                <div class="audio-player-wrap">
+                  <div class="audio-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  </div>
+                  <audio controls preload="none">
+                    <source src="public/audio/meditation_mod04_hdtv.MP3" type="audio/mpeg">
+                    Your browser does not support audio playback.
+                  </audio>
+                  <span class="audio-filename">meditation_mod04_hdtv.mp3</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <ul class="lessons-list">
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
               <div class="lesson-content">
-                <h4>The Attraction Audit</h4>
-                <p>Examine the habits — physical and behavioral — that have diluted your attractiveness over time.</p>
+                <h4>Standards Assessment</h4>
+                <p>What standards are you actually living by versus what you say you believe? The gap is the work.</p>
               </div>
             </li>
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
               <div class="lesson-content">
-                <h4>Three Pillars: Presence, Polarity, Purpose</h4>
-                <p>These are orientations, not techniques. Understand the difference — then live it.</p>
+                <h4>Boundary Audit</h4>
+                <p>Which of your boundaries have you let slide? Name them. No explanation needed.</p>
               </div>
             </li>
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
               <div class="lesson-content">
-                <h4>7-Day Challenge</h4>
-                <p>One action per day. Small enough to do, meaningful enough to matter. Report back at the next session.</p>
+                <h4>Install Your Standards — 3 Non-Negotiables</h4>
+                <p>The three lines you will not cross. Written, committed, and non-negotiable from this point forward.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="8" x2="12" y2="16"/></svg></div>
+              <div class="lesson-content">
+                <h4>Boundary Communication Framework</h4>
+                <p>How to say it clearly, once, without anger. The framework that earns respect without conflict.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+              <div class="lesson-content">
+                <h4>Daily Hold-the-Line Tracker</h4>
+                <p>Seven days. Did you hold your standard? One line. Yes or no. No narrative needed.</p>
               </div>
             </li>
           </ul>
+          <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--border); display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <a href="public/documents/M4_WS_Self_Respect_Boundaries.pdf" download class="btn-course" style="display:inline-flex; align-items:center; gap:8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Worksheet PDF
+            </a>
+            <a href="public/fillins/M4_fillin.html" target="_blank" class="btn-course" style="display:inline-flex; align-items:center; gap:8px; border-color:rgba(0,212,255,0.5); color:#00D4FF;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Fill In Online
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1118,39 +1475,85 @@
         <div class="module-header" onclick="toggleModule(this)">
           <div class="module-num">05</div>
           <div class="module-info">
-            <h3>Mastering Emotional Intelligence</h3>
-            <p>Theme: Self-Awareness and Regulation</p>
+            <h3>Self-Hypnosis for Men</h3>
+            <p>Theme: Focus & Subconscious Access</p>
           </div>
           <button class="module-toggle">+</button>
         </div>
         <div class="module-body">
-          <div class="video-placeholder">
-            <div class="video-play-btn">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-            <span class="video-label">Module 5 — Video Lesson</span>
-            <span class="video-filename">mod_videohdtv.mp4</span>
+          <div style="width:100%; aspect-ratio:16/9; background:#0c0f14; border-radius:6px; margin:24px 0; overflow:hidden;">
+            <video controls preload="metadata" style="width:100%; height:100%; display:block;">
+              <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/Module05_HDTV_final.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="progress-wrap">
             <div class="progress-label"><span>Your Progress</span><span>0%</span></div>
             <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
           </div>
+          <!-- HYPNOTIC MEDITATION — MOD 05 -->
+          <div class="meditation-section">
+            <div class="meditation-label" onclick="toggleMeditation(this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
+              Watch Your Hypnotic Meditation
+              <span class="meditation-toggle-icon">+</span>
+            </div>
+            <div class="meditation-body">
+              <div class="meditation-video-wrap" style="border-style:solid; padding:0;">
+                <video controls preload="metadata" style="width:100%; height:100%; display:block; position:relative; z-index:1;">
+                  <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/01_Myerotichyp_final02.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="audio-section">
+                <div class="audio-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Audio Only
+                </div>
+                <div class="audio-player-wrap">
+                  <div class="audio-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  </div>
+                  <audio controls preload="none">
+                    <source src="public/audio/meditation_mod05_hdtv.MP3" type="audio/mpeg">
+                    Your browser does not support audio playback.
+                  </audio>
+                  <span class="audio-filename">meditation_mod05_hdtv.mp3</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <ul class="lessons-list">
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
               <div class="lesson-content">
-                <h4>Emotional Inventory</h4>
-                <p>Map your emotional patterns — the ones you lead with and the ones you suppress.</p>
+                <h4>Focus Access Assessment</h4>
+                <p>Where does your mind go when you're not directing it? This tells you exactly where the work is.</p>
               </div>
             </li>
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
               <div class="lesson-content">
-                <h4>Regulation Toolkit</h4>
-                <p>Practical tools for staying grounded when your emotional state is triggered in real time.</p>
+                <h4>6-Step Induction Protocol — Settle · Descend · Anchor · Suggest · Visualize · Return</h4>
+                <p>The six steps practiced until they become automatic. Each one builds on the last.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+              <div class="lesson-content">
+                <h4>Personal Suggestion Script Builder</h4>
+                <p>Write your own suggestion script targeting your specific area. Precise language is everything here.</p>
               </div>
             </li>
           </ul>
+          <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--border); display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <a href="public/documents/M5_WS_Self_Hypnosis_for_Men.pdf" download class="btn-course" style="display:inline-flex; align-items:center; gap:8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Worksheet PDF
+            </a>
+            <a href="public/fillins/M5_fillin.html" target="_blank" class="btn-course" style="display:inline-flex; align-items:center; gap:8px; border-color:rgba(0,212,255,0.5); color:#00D4FF;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Fill In Online
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1159,87 +1562,99 @@
         <div class="module-header" onclick="toggleModule(this)">
           <div class="module-num">06</div>
           <div class="module-info">
-            <h3>Communication That Commands Respect</h3>
-            <p>Theme: Language, Assertion and Clarity</p>
+            <h3>Vision Board & Identity Lock-In</h3>
+            <p>Theme: Identity & Vision</p>
           </div>
           <button class="module-toggle">+</button>
         </div>
         <div class="module-body">
-          <div class="video-placeholder">
-            <div class="video-play-btn">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-            <span class="video-label">Module 6 — Video Lesson</span>
-            <span class="video-filename">mod_videohdtv.mp4</span>
+          <div style="width:100%; aspect-ratio:16/9; background:#0c0f14; border-radius:6px; margin:24px 0; overflow:hidden;">
+            <video controls preload="metadata" style="width:100%; height:100%; display:block;">
+              <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/Module06_HDTV_0620_final.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="progress-wrap">
             <div class="progress-label"><span>Your Progress</span><span>0%</span></div>
             <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
           </div>
-          <ul class="lessons-list">
-            <li class="lesson-item">
-              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-              <div class="lesson-content">
-                <h4>Language Audit</h4>
-                <p>Identify the hedging, apologizing, and filler speech patterns eroding your authority.</p>
-              </div>
-            </li>
-            <li class="lesson-item">
-              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-              <div class="lesson-content">
-                <h4>Assertion Without Aggression</h4>
-                <p>Say what you mean. Mean what you say. Leave no ambiguity about where you stand.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- MODULE 7 -->
-      <div class="module-card">
-        <div class="module-header" onclick="toggleModule(this)">
-          <div class="module-num">07</div>
-          <div class="module-info">
-            <h3>The Integration — Becoming That Man</h3>
-            <p>Theme: Identity and Long-Term Embodiment</p>
-          </div>
-          <button class="module-toggle">+</button>
-        </div>
-        <div class="module-body">
-          <div class="video-placeholder">
-            <div class="video-play-btn">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <!-- HYPNOTIC MEDITATION — MOD 06 -->
+          <div class="meditation-section">
+            <div class="meditation-label" onclick="toggleMeditation(this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
+              Watch Your Hypnotic Meditation
+              <span class="meditation-toggle-icon">+</span>
             </div>
-            <span class="video-label">Module 7 — Final Video Lesson</span>
-            <span class="video-filename">mod_videohdtv.mp4</span>
-          </div>
-          <div class="progress-wrap">
-            <div class="progress-label"><span>Your Progress</span><span>0%</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+            <div class="meditation-body">
+              <div class="meditation-video-wrap" style="border-style:solid; padding:0;">
+                <video controls preload="metadata" style="width:100%; height:100%; display:block; position:relative; z-index:1;">
+                  <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/CourseAdio_0621_Mod6jancom.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="audio-section">
+                <div class="audio-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Audio Only
+                </div>
+                <div class="audio-player-wrap">
+                  <div class="audio-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  </div>
+                  <audio controls preload="none">
+                    <source src="public/audio/meditation_mod06_hdtv.MP3" type="audio/mpeg">
+                    Your browser does not support audio playback.
+                  </audio>
+                  <span class="audio-filename">meditation_mod06_hdtv.mp3</span>
+                </div>
+              </div>
+            </div>
           </div>
           <ul class="lessons-list">
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
               <div class="lesson-content">
-                <h4>The Full-Circle Review</h4>
-                <p>Look at every module from the outside. Name the single most important shift you are carrying forward.</p>
+                <h4>Lock-In Assessment</h4>
+                <p>Where are you living from identity versus living from drift? Honest self-audit before you build.</p>
               </div>
             </li>
             <li class="lesson-item">
               <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
               <div class="lesson-content">
-                <h4>The Man Manifesto</h4>
-                <p>Write the declaration of who you are becoming. Not a wish. A decision.</p>
+                <h4>Full Identity Declaration</h4>
+                <p>A complete written declaration of the man you are choosing to become. Read it daily.</p>
               </div>
             </li>
             <li class="lesson-item">
-              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 15 15"/></svg></div>
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
               <div class="lesson-content">
-                <h4>Graduation & Next Steps</h4>
-                <p>Your path into the Advanced track. You have laid the foundation — now we build on it.</p>
+                <h4>5-Pillar Identity Map</h4>
+                <p>Map your identity across five domains: body, mind, mission, relationships, inner life.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="8" x2="12" y2="16"/></svg></div>
+              <div class="lesson-content">
+                <h4>Four-Area Vision Board — Who I Am · What I Build · How I Live · Who I Attract</h4>
+                <p>Concrete visual architecture for your future. Each quadrant must have real, specific entries — no vague images.</p>
+              </div>
+            </li>
+            <li class="lesson-item">
+              <div class="lesson-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+              <div class="lesson-content">
+                <h4>Lock-In Action Commitment</h4>
+                <p>One irreversible action you take this week to make the identity real. Small but permanent.</p>
               </div>
             </li>
           </ul>
+          <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--border); display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <a href="public/documents/M6_WS_Vision_Board_Identity.pdf" download class="btn-course" style="display:inline-flex; align-items:center; gap:8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Worksheet PDF
+            </a>
+            <a href="public/fillins/M6_fillin.html" target="_blank" class="btn-course" style="display:inline-flex; align-items:center; gap:8px; border-color:rgba(0,212,255,0.5); color:#00D4FF;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Fill In Online
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1258,72 +1673,84 @@
 
       <div class="course-card">
         <div class="course-img-holder">
-          <div class="img-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <span class="img-label">Course Image Placeholder</span>
+          <img src="public/images/hypnogirl_07.png" alt="Advanced Attraction Dynamics" style="width:100%; height:100%; object-fit:cover; position:relative; z-index:1;">
         </div>
         <div class="course-body">
           <span class="course-badge">Advanced</span>
-          <h3>Intimate Mastery: Connection & Polarity</h3>
-          <p>A deep-dive into the dynamics of attraction, intimacy, and sustained connection in relationships. For men who have completed Module 1.</p>
+          <h3>Advanced Attraction Dynamics</h3>
+          <p>Learn how your presence, pacing, and subtle energy creates thick, electric tension that makes her body respond before her mind can catch up. You'll feel the shift — the moment women start leaning in, breath quickening, eyes softening.</p>
           <div class="course-footer">
-            <span class="course-price">$297</span>
-            <a href="#" class="btn-course">Enroll Now</a>
+            <a href="#" class="btn-course">Coming Soon</a>
           </div>
         </div>
       </div>
 
       <div class="course-card">
         <div class="course-img-holder">
-          <div class="img-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-          </div>
-          <span class="img-label">Course Image Placeholder</span>
+          <img src="public/images/hypnogirl_08.png" alt="Communication & Female Psychology" style="width:100%; height:100%; object-fit:cover; position:relative; z-index:1;">
         </div>
         <div class="course-body">
           <span class="course-badge">Advanced</span>
-          <h3>Subconscious Reprogramming for Men</h3>
-          <p>Using hypnosis and guided visualization to dissolve the deep-seated beliefs blocking your full masculine expression.</p>
+          <h3>Communication & Female Psychology</h3>
+          <p>Master the hidden language of her emotions and timing. Speak in ways that bypass resistance and slide straight into her desire — calibrated, confident, addictive. You'll know exactly how to open her mind and her body with nothing but your voice and presence.</p>
           <div class="course-footer">
-            <span class="course-price">$347</span>
-            <a href="#" class="btn-course">Enroll Now</a>
+            <a href="#" class="btn-course">Coming Soon</a>
           </div>
         </div>
       </div>
 
       <div class="course-card">
         <div class="course-img-holder">
-          <div class="img-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <span class="img-label">Course Image Placeholder</span>
+          <img src="public/images/hypnogirl_09.png" alt="Intimacy Awareness" style="width:100%; height:100%; object-fit:cover; position:relative; z-index:1;">
         </div>
         <div class="course-body">
           <span class="course-badge">Advanced</span>
-          <h3>Sexual Health & Performance Mastery</h3>
-          <p>A frank, science-grounded curriculum on male sexual health, performance, and the psychology of fulfilling intimacy.</p>
+          <h3>Intimacy Awareness</h3>
+          <p>Leave performance anxiety behind. Step into pure, luxurious presence. Learn the slow, attentive art of pacing that turns every touch into a hypnotic invitation. She won't just enjoy it — she'll crave the way you make her feel completely seen, held, and opened.</p>
           <div class="course-footer">
-            <span class="course-price">$397</span>
-            <a href="#" class="btn-course">Enroll Now</a>
+            <a href="#" class="btn-course">Coming Soon</a>
           </div>
         </div>
       </div>
 
       <div class="course-card">
         <div class="course-img-holder">
-          <div class="img-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-          </div>
-          <span class="img-label">Course Image Placeholder</span>
+          <img src="public/images/hypnogirl_10.png" alt="Advanced Transformation" style="width:100%; height:100%; object-fit:cover; position:relative; z-index:1;">
         </div>
         <div class="course-body">
-          <span class="course-badge">Coming Soon</span>
-          <h3>The HDTV Mastermind: Private Coaching</h3>
-          <p>One-on-one and small-group intensive sessions with HDTV instructors. Limited seats. Application required.</p>
+          <span class="course-badge">Advanced</span>
+          <h3>Advanced Transformation</h3>
+          <p>This is where everything integrates. Discipline. Desire. Identity. Dominance. You become the man who naturally lives in this powerful state — day after day, night after night — until it simply feels like who you are.</p>
           <div class="course-footer">
-            <span class="course-price">Apply</span>
-            <a href="#support" class="btn-course">Learn More</a>
+            <a href="#" class="btn-course">Coming Soon</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-img-holder">
+          <img src="public/images/hypnogirl_11.png" alt="Learn Women's Physiology" style="width:100%; height:100%; object-fit:cover; position:relative; z-index:1;">
+        </div>
+        <div class="course-body">
+          <span class="course-badge">Advanced</span>
+          <h3>Learn Women's Physiology</h3>
+          <p>A clear, detailed map of her body and arousal. No more guessing. You'll understand the rhythms, the hotspots, the secret pathways that turn curiosity into deep, shuddering pleasure — knowledge that makes you dangerously good and irresistibly confident.</p>
+          <div class="course-footer">
+            <a href="#" class="btn-course">Coming Soon</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-img-holder">
+          <img src="public/images/hypnogirl_12.png" alt="Make Her Orgasm in 5 Waves" style="width:100%; height:100%; object-fit:cover; position:relative; z-index:1;">
+        </div>
+        <div class="course-body">
+          <span class="course-badge">Advanced</span>
+          <h3>Make Her Orgasm in 5 Waves</h3>
+          <p>A precise, layered framework for guiding her through rising waves of pleasure — slow, building, inevitable. Learn exactly how to read her, pace her, and ride each wave until she breaks in the kind of release that leaves her trembling and quietly addicted to you.</p>
+          <div class="course-footer">
+            <a href="#" class="btn-course">Coming Soon</a>
           </div>
         </div>
       </div>
@@ -1336,20 +1763,38 @@
 <section id="instructor" style="background:var(--dark);">
   <div class="section">
     <div class="section-label">Your Guide</div>
-    <h2 class="section-title">Meet Your Instructor</h2>
+    <h2 class="section-title">Meet the Instructors</h2>
 
     <div class="instructor-wrap">
-      <div class="instructor-photo">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        <span>Photo Placeholder</span>
-      </div>
-      <div class="instructor-bio">
-        <h2>HypnoticDream TV</h2>
-        <p class="title">Founder · Lead Instructor · HDTV</p>
-        <p>HDTV was built on a single conviction: that most men have never been given an honest education about themselves — their attention, their drive, their impact on the people around them, and their inner life as sexual beings.</p>
-        <p>The Men's Mastery Program is the foundation of that education. It is not therapy. It is not motivational content. It is structured, practitioner-level work that treats you like the intelligent adult you are.</p>
-        <p>Every module, every worksheet, and every video lesson in this curriculum was developed through years of coaching, research, and direct work with men who were willing to take an honest look at themselves and do something about it.</p>
-      </div>
+      <article class="instructor-card">
+        <div class="instructor-photo">
+          <img src="public/images/instructor_01.png" alt="The Blond Teacher" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+        </div>
+        <div class="instructor-bio">
+          <h3>The Blond Teacher</h3>
+          <p>Your flirty next-door blonde tutor. Smart, teasing, and dangerously addictive — she teaches you control with a smile that makes focus feel sinful.</p>
+        </div>
+      </article>
+
+      <article class="instructor-card">
+        <div class="instructor-photo">
+          <img src="public/images/instructor_02.png" alt="The Spicey Dominatrix" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+        </div>
+        <div class="instructor-bio">
+          <h3>The Spicey Dominatrix</h3>
+          <p>Your strict, sultry Latina dominatrix. She commands your attention, cracks the whip on weak habits, and trains you to become the powerful man she demands.</p>
+        </div>
+      </article>
+
+      <article class="instructor-card">
+        <div class="instructor-photo">
+          <img src="public/images/instructor_03.png" alt="The Naughty Nurse" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+        </div>
+        <div class="instructor-bio">
+          <h3>The Naughty Nurse</h3>
+          <p>Your playful, wicked exotic nurse. She diagnoses your weaknesses with a mischievous smile and heals you with doses of confidence, desire, and deep hypnotic pleasure.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -1366,7 +1811,7 @@
         </p>
         <div class="footer-contact-item">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span>support@hypnoticdreamtv.com</span>
+          <span>Brock Director — hypoticalstv@gmail.com</span>
         </div>
         <div class="footer-contact-item">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -1400,7 +1845,6 @@
     </div>
   </div>
 </section>
-
 
 <!-- ─── FOOTER ─────────────────────────────────────── -->
 <footer>
@@ -1443,7 +1887,7 @@
       <h4>Contact</h4>
       <div class="footer-contact-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span>support@hypnoticdreamtv.com</span>
+        <span>Brock Director — hypoticalstv@gmail.com</span>
       </div>
       <div class="footer-contact-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -1467,11 +1911,15 @@
     const card = headerEl.closest('.module-card');
     card.classList.toggle('open');
   }
+
+  function toggleMeditation(labelEl) {
+    const section = labelEl.closest('.meditation-section');
+    section.classList.toggle('open');
+  }
 </script>
 
 
 <script>
-  // SESSION GATE — must be inside <body> to execute
   (async () => {
     try {
       const res = await fetch('/api/session');
