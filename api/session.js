@@ -3,7 +3,7 @@
 // Called by the frontend on page load to decide whether to show
 // the login gate or the course content.
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   const cookie = req.headers.cookie || '';
   const match = cookie.match(/hdtv_session=([^;]+)/);
 
