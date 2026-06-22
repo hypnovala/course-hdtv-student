@@ -7,7 +7,6 @@ const crypto = require('crypto');
 // ─── APPROVED STUDENTS ───────────────────────────────────────────
 // Add enrolled student emails here. One per line.
 const APPROVED_EMAILS = [
-const APPROVED_EMAILS = [
   'bhhm2020@gmail.com',
 ];
 // ─────────────────────────────────────────────────────────────────
