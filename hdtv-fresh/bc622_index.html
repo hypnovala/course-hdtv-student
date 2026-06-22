@@ -848,13 +848,36 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 12px;
+      margin-bottom: 0;
       display: flex;
       align-items: center;
       gap: 8px;
+      cursor: pointer;
+      user-select: none;
     }
 
     .meditation-label svg { color: var(--gold); }
+
+    .meditation-toggle-icon {
+      margin-left: auto;
+      font-size: 15px;
+      line-height: 1;
+      color: var(--gold);
+      transition: transform 0.2s;
+    }
+
+    .meditation-section.open .meditation-toggle-icon {
+      transform: rotate(45deg);
+    }
+
+    .meditation-body {
+      display: none;
+      margin-top: 16px;
+    }
+
+    .meditation-section.open .meditation-body {
+      display: block;
+    }
 
     .meditation-video-wrap {
       position: relative;
@@ -1016,7 +1039,7 @@
   <div class="hero-meta">
     <div class="hero-meta-item">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      7 Modules · 4 Weekly Lessons each
+      6 Modules · 4 Weekly Lessons each
     </div>
     <div class="hero-meta-item">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -1086,31 +1109,32 @@
           </div>
           <!-- HYPNOTIC MEDITATION — MOD 01 -->
           <div class="meditation-section">
-            <div class="meditation-label">
+            <div class="meditation-label" onclick="toggleMeditation(this)">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
               Watch Your Hypnotic Meditation
+              <span class="meditation-toggle-icon">+</span>
             </div>
-            <div class="meditation-video-wrap">
-              <div class="meditation-orb">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
+            <div class="meditation-body">
+              <div class="meditation-video-wrap" style="border-style:solid; padding:0;">
+                <video controls preload="metadata" style="width:100%; height:100%; display:block; position:relative; z-index:1;">
+                  <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/HDTV_Fanvue_Vert_softvoice_Pull-of-Success.mp4" type="video/mp4">
+                </video>
               </div>
-              <div class="meditation-placeholder-text">Hypnotic Meditation — Module 1</div>
-              <div class="meditation-placeholder-sub">meditation_mod01_hdtv.mp4 · Coming Soon</div>
-            </div>
-            <div class="audio-section">
-              <div class="audio-label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                Audio Only
-              </div>
-              <div class="audio-player-wrap">
-                <div class="audio-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <div class="audio-section">
+                <div class="audio-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Audio Only
                 </div>
-                <audio controls preload="none">
-                  <source src="public/audio/meditation_mod01_hdtv.mp3" type="audio/mpeg">
-                  Your browser does not support audio playback.
-                </audio>
-                <span class="audio-filename">meditation_mod01_hdtv.mp3</span>
+                <div class="audio-player-wrap">
+                  <div class="audio-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  </div>
+                  <audio controls preload="none">
+                    <source src="public/audio/meditation_mod01_hdtv.MP3" type="audio/mpeg">
+                    Your browser does not support audio playback.
+                  </audio>
+                  <span class="audio-filename">meditation_mod01_hdtv.mp3</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1179,31 +1203,32 @@
           </div>
           <!-- HYPNOTIC MEDITATION — MOD 02 -->
           <div class="meditation-section">
-            <div class="meditation-label">
+            <div class="meditation-label" onclick="toggleMeditation(this)">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
               Watch Your Hypnotic Meditation
+              <span class="meditation-toggle-icon">+</span>
             </div>
-            <div class="meditation-video-wrap">
-              <div class="meditation-orb">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
+            <div class="meditation-body">
+              <div class="meditation-video-wrap" style="border-style:solid; padding:0;">
+                <video controls preload="metadata" style="width:100%; height:100%; display:block; position:relative; z-index:1;">
+                  <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/HDTV_Fanvue_169_script_deepgoals.mp4" type="video/mp4">
+                </video>
               </div>
-              <div class="meditation-placeholder-text">Hypnotic Meditation — Module 2</div>
-              <div class="meditation-placeholder-sub">meditation_mod02_hdtv.mp4 · Coming Soon</div>
-            </div>
-            <div class="audio-section">
-              <div class="audio-label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                Audio Only
-              </div>
-              <div class="audio-player-wrap">
-                <div class="audio-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <div class="audio-section">
+                <div class="audio-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Audio Only
                 </div>
-                <audio controls preload="none">
-                  <source src="public/audio/meditation_mod02_hdtv.mp3" type="audio/mpeg">
-                  Your browser does not support audio playback.
-                </audio>
-                <span class="audio-filename">meditation_mod02_hdtv.mp3</span>
+                <div class="audio-player-wrap">
+                  <div class="audio-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  </div>
+                  <audio controls preload="none">
+                    <source src="public/audio/meditation_mod02_hdtv.MP3" type="audio/mpeg">
+                    Your browser does not support audio playback.
+                  </audio>
+                  <span class="audio-filename">meditation_mod02_hdtv.mp3</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1272,31 +1297,32 @@
           </div>
           <!-- HYPNOTIC MEDITATION — MOD 03 -->
           <div class="meditation-section">
-            <div class="meditation-label">
+            <div class="meditation-label" onclick="toggleMeditation(this)">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
               Watch Your Hypnotic Meditation
+              <span class="meditation-toggle-icon">+</span>
             </div>
-            <div class="meditation-video-wrap">
-              <div class="meditation-orb">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
+            <div class="meditation-body">
+              <div class="meditation-video-wrap" style="border-style:solid; padding:0;">
+                <video controls preload="metadata" style="width:100%; height:100%; display:block; position:relative; z-index:1;">
+                  <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/BiAnal_Hypnosis_02.mp4" type="video/mp4">
+                </video>
               </div>
-              <div class="meditation-placeholder-text">Hypnotic Meditation — Module 3</div>
-              <div class="meditation-placeholder-sub">meditation_mod03_hdtv.mp4 · Coming Soon</div>
-            </div>
-            <div class="audio-section">
-              <div class="audio-label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                Audio Only
-              </div>
-              <div class="audio-player-wrap">
-                <div class="audio-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <div class="audio-section">
+                <div class="audio-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Audio Only
                 </div>
-                <audio controls preload="none">
-                  <source src="public/audio/meditation_mod03_hdtv.mp3" type="audio/mpeg">
-                  Your browser does not support audio playback.
-                </audio>
-                <span class="audio-filename">meditation_mod03_hdtv.mp3</span>
+                <div class="audio-player-wrap">
+                  <div class="audio-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  </div>
+                  <audio controls preload="none">
+                    <source src="public/audio/meditation_mod03_hdtv.MP3" type="audio/mpeg">
+                    Your browser does not support audio playback.
+                  </audio>
+                  <span class="audio-filename">meditation_mod03_hdtv.mp3</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1365,31 +1391,32 @@
           </div>
           <!-- HYPNOTIC MEDITATION — MOD 04 -->
           <div class="meditation-section">
-            <div class="meditation-label">
+            <div class="meditation-label" onclick="toggleMeditation(this)">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
               Watch Your Hypnotic Meditation
+              <span class="meditation-toggle-icon">+</span>
             </div>
-            <div class="meditation-video-wrap">
-              <div class="meditation-orb">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
+            <div class="meditation-body">
+              <div class="meditation-video-wrap" style="border-style:solid; padding:0;">
+                <video controls preload="metadata" style="width:100%; height:100%; display:block; position:relative; z-index:1;">
+                  <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/XXExtreme_Wordpress_Erica01.mp4" type="video/mp4">
+                </video>
               </div>
-              <div class="meditation-placeholder-text">Hypnotic Meditation — Module 4</div>
-              <div class="meditation-placeholder-sub">meditation_mod04_hdtv.mp4 · Coming Soon</div>
-            </div>
-            <div class="audio-section">
-              <div class="audio-label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                Audio Only
-              </div>
-              <div class="audio-player-wrap">
-                <div class="audio-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <div class="audio-section">
+                <div class="audio-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Audio Only
                 </div>
-                <audio controls preload="none">
-                  <source src="public/audio/meditation_mod04_hdtv.mp3" type="audio/mpeg">
-                  Your browser does not support audio playback.
-                </audio>
-                <span class="audio-filename">meditation_mod04_hdtv.mp3</span>
+                <div class="audio-player-wrap">
+                  <div class="audio-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  </div>
+                  <audio controls preload="none">
+                    <source src="public/audio/meditation_mod04_hdtv.MP3" type="audio/mpeg">
+                    Your browser does not support audio playback.
+                  </audio>
+                  <span class="audio-filename">meditation_mod04_hdtv.mp3</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1465,31 +1492,32 @@
           </div>
           <!-- HYPNOTIC MEDITATION — MOD 05 -->
           <div class="meditation-section">
-            <div class="meditation-label">
+            <div class="meditation-label" onclick="toggleMeditation(this)">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
               Watch Your Hypnotic Meditation
+              <span class="meditation-toggle-icon">+</span>
             </div>
-            <div class="meditation-video-wrap">
-              <div class="meditation-orb">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
+            <div class="meditation-body">
+              <div class="meditation-video-wrap" style="border-style:solid; padding:0;">
+                <video controls preload="metadata" style="width:100%; height:100%; display:block; position:relative; z-index:1;">
+                  <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/01_Myerotichyp_final02.mp4" type="video/mp4">
+                </video>
               </div>
-              <div class="meditation-placeholder-text">Hypnotic Meditation — Module 5</div>
-              <div class="meditation-placeholder-sub">meditation_mod05_hdtv.mp4 · Coming Soon</div>
-            </div>
-            <div class="audio-section">
-              <div class="audio-label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                Audio Only
-              </div>
-              <div class="audio-player-wrap">
-                <div class="audio-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <div class="audio-section">
+                <div class="audio-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Audio Only
                 </div>
-                <audio controls preload="none">
-                  <source src="public/audio/meditation_mod05_hdtv.mp3" type="audio/mpeg">
-                  Your browser does not support audio playback.
-                </audio>
-                <span class="audio-filename">meditation_mod05_hdtv.mp3</span>
+                <div class="audio-player-wrap">
+                  <div class="audio-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  </div>
+                  <audio controls preload="none">
+                    <source src="public/audio/meditation_mod05_hdtv.MP3" type="audio/mpeg">
+                    Your browser does not support audio playback.
+                  </audio>
+                  <span class="audio-filename">meditation_mod05_hdtv.mp3</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1551,31 +1579,32 @@
           </div>
           <!-- HYPNOTIC MEDITATION — MOD 06 -->
           <div class="meditation-section">
-            <div class="meditation-label">
+            <div class="meditation-label" onclick="toggleMeditation(this)">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4"/></svg>
               Watch Your Hypnotic Meditation
+              <span class="meditation-toggle-icon">+</span>
             </div>
-            <div class="meditation-video-wrap">
-              <div class="meditation-orb">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/></svg>
+            <div class="meditation-body">
+              <div class="meditation-video-wrap" style="border-style:solid; padding:0;">
+                <video controls preload="metadata" style="width:100%; height:100%; display:block; position:relative; z-index:1;">
+                  <source src="https://hypnoticdreamtv.com/wp-content/uploads/2026/06/CourseAdio_0621_Mod6jancom.mp4" type="video/mp4">
+                </video>
               </div>
-              <div class="meditation-placeholder-text">Hypnotic Meditation — Module 6</div>
-              <div class="meditation-placeholder-sub">meditation_mod06_hdtv.mp4 · Coming Soon</div>
-            </div>
-            <div class="audio-section">
-              <div class="audio-label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                Audio Only
-              </div>
-              <div class="audio-player-wrap">
-                <div class="audio-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <div class="audio-section">
+                <div class="audio-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Audio Only
                 </div>
-                <audio controls preload="none">
-                  <source src="public/audio/meditation_mod06_hdtv.mp3" type="audio/mpeg">
-                  Your browser does not support audio playback.
-                </audio>
-                <span class="audio-filename">meditation_mod06_hdtv.mp3</span>
+                <div class="audio-player-wrap">
+                  <div class="audio-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  </div>
+                  <audio controls preload="none">
+                    <source src="public/audio/meditation_mod06_hdtv.MP3" type="audio/mpeg">
+                    Your browser does not support audio playback.
+                  </audio>
+                  <span class="audio-filename">meditation_mod06_hdtv.mp3</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1651,7 +1680,7 @@
           <h3>Advanced Attraction Dynamics</h3>
           <p>Learn how your presence, pacing, and subtle energy creates thick, electric tension that makes her body respond before her mind can catch up. You'll feel the shift — the moment women start leaning in, breath quickening, eyes softening.</p>
           <div class="course-footer">
-            <a href="#" class="btn-course">Enroll Now</a>
+            <a href="#" class="btn-course">Coming Soon</a>
           </div>
         </div>
       </div>
@@ -1665,7 +1694,7 @@
           <h3>Communication & Female Psychology</h3>
           <p>Master the hidden language of her emotions and timing. Speak in ways that bypass resistance and slide straight into her desire — calibrated, confident, addictive. You'll know exactly how to open her mind and her body with nothing but your voice and presence.</p>
           <div class="course-footer">
-            <a href="#" class="btn-course">Enroll Now</a>
+            <a href="#" class="btn-course">Coming Soon</a>
           </div>
         </div>
       </div>
@@ -1679,7 +1708,7 @@
           <h3>Intimacy Awareness</h3>
           <p>Leave performance anxiety behind. Step into pure, luxurious presence. Learn the slow, attentive art of pacing that turns every touch into a hypnotic invitation. She won't just enjoy it — she'll crave the way you make her feel completely seen, held, and opened.</p>
           <div class="course-footer">
-            <a href="#" class="btn-course">Enroll Now</a>
+            <a href="#" class="btn-course">Coming Soon</a>
           </div>
         </div>
       </div>
@@ -1693,7 +1722,7 @@
           <h3>Advanced Transformation</h3>
           <p>This is where everything integrates. Discipline. Desire. Identity. Dominance. You become the man who naturally lives in this powerful state — day after day, night after night — until it simply feels like who you are.</p>
           <div class="course-footer">
-            <a href="#" class="btn-course">Enroll Now</a>
+            <a href="#" class="btn-course">Coming Soon</a>
           </div>
         </div>
       </div>
@@ -1707,7 +1736,7 @@
           <h3>Learn Women's Physiology</h3>
           <p>A clear, detailed map of her body and arousal. No more guessing. You'll understand the rhythms, the hotspots, the secret pathways that turn curiosity into deep, shuddering pleasure — knowledge that makes you dangerously good and irresistibly confident.</p>
           <div class="course-footer">
-            <a href="#" class="btn-course">Enroll Now</a>
+            <a href="#" class="btn-course">Coming Soon</a>
           </div>
         </div>
       </div>
@@ -1721,7 +1750,7 @@
           <h3>Make Her Orgasm in 5 Waves</h3>
           <p>A precise, layered framework for guiding her through rising waves of pleasure — slow, building, inevitable. Learn exactly how to read her, pace her, and ride each wave until she breaks in the kind of release that leaves her trembling and quietly addicted to you.</p>
           <div class="course-footer">
-            <a href="#" class="btn-course">Enroll Now</a>
+            <a href="#" class="btn-course">Coming Soon</a>
           </div>
         </div>
       </div>
@@ -1881,6 +1910,11 @@
   function toggleModule(headerEl) {
     const card = headerEl.closest('.module-card');
     card.classList.toggle('open');
+  }
+
+  function toggleMeditation(labelEl) {
+    const section = labelEl.closest('.meditation-section');
+    section.classList.toggle('open');
   }
 </script>
 
