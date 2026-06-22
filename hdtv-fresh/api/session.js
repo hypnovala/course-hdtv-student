@@ -1,0 +1,22 @@
+// api/session.js
+module.exports = async function handler(req, res) {
+  const cookie = req.headers.cookie || '';
+  const match = cookie.match(/hdtv_session=([^;]+)/);
+
+  if (!match) {
+    return res.status(401).json({ loggedIn: false });
+  }
+
+  try {
+    const session = JSON.parse(Buffer.from(match[1], 'base64').toString('utf8'));
+    const sevenDays = 1000 * 60 * 60 * 24 * 7;
+
+    if (!session.email || Date.now() - session.loginAt > sevenDays) {
+      return res.status(401).json({ loggedIn: false });
+    }
+
+    return res.status(200).json({ loggedIn: true, email: session.email });
+  } catch {
+    return res.status(401).json({ loggedIn: false });
+  }
+};
