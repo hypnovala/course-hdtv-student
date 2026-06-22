@@ -13,7 +13,7 @@ const APPROVED_EMAILS = [
 
 const SECRET = process.env.MAGIC_LINK_SECRET || 'hdtv-change-this-secret';
 const BASE_URL = process.env.BASE_URL || 'https://student.hypnoticdreamtv.com';
-const FROM_EMAIL = process.env.FROM_EMAIL || 'hypnoticalstv@gmail.com';
+const FROM_EMAIL = process.env.FROM_EMAIL || 'noreply@hypnoticdreamtv.com';
 
 function generateToken(email) {
   const expires = Date.now() + 1000 * 60 * 30; // 30 minutes
