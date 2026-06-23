@@ -1919,19 +1919,5 @@
 </script>
 
 
-<script>
-  (async () => {
-    try {
-      const res = await fetch('/api/session');
-      const data = await res.json();
-      if (!data.loggedIn) {
-        window.location.href = '/login.html';
-      }
-    } catch {
-      window.location.href = '/login.html';
-    }
-  })();
-</script>
-
 </body>
 </html>
