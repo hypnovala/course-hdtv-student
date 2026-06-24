@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal — HDTV Sex Ed 101</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:   #c9a84c;
+      --gold-dim: rgba(201,168,76,0.18);
+      --cyan:   #00D4FF;
+      --cyan-dim: rgba(0,212,255,0.12);
+      --navy:   #060918;
+      --navy-2: #0e1422;
+      --cream:  #f0ebe3;
+      --white:  #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: rgba(255,255,255,0.80);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    /* ── Background atmosphere ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at top left, #0d1f3c 0%, transparent 40%),
+        radial-gradient(circle at top right, rgba(0,212,255,0.06) 0%, transparent 30%),
+        radial-gradient(circle at bottom, rgba(201,168,76,0.05) 0%, transparent 40%),
+        linear-gradient(180deg, #060918 0%, #0e1422 55%, #060918 100%);
+    }
+
+    /* ── Header ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(0,212,255,0.18);
+      background: rgba(6,9,24,0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-circle {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,212,255,0.40);
+      background: radial-gradient(circle, rgba(0,212,255,0.18) 0%, #060918 72%);
+      box-shadow: 0 0 16px rgba(0,212,255,0.30);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--cyan);
+    }
+    .logo-text p:first-child {
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(0,212,255,0.75);
+    }
+    .logo-text p:last-child {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 2px;
+    }
+    .header-links {
+      display: flex;
+      gap: 8px;
+    }
+    .header-links a {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+    .header-links a:hover {
+      border-color: rgba(0,212,255,0.35);
+      background: rgba(0,212,255,0.08);
+      color: #fff;
+    }
+
+    /* ── Page wrapper ── */
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* ── Tab nav ── */
+    .tab-nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: 10px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.60);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover {
+      border-color: rgba(0,212,255,0.35);
+      color: #fff;
+    }
+    .tab-btn.active {
+      border-color: rgba(201,168,76,0.55);
+      background: rgba(201,168,76,0.10);
+      color: var(--gold);
+    }
+
+    /* ── Sections ── */
+    .legal-section { display: none; }
+    .legal-section.visible { display: block; }
+
+    /* ── Page title ── */
+    .page-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.30em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.75);
+      margin-bottom: 10px;
+    }
+    .page-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .page-meta {
+      font-size: 13px;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 40px;
+    }
+    .page-meta span {
+      margin: 0 8px;
+      color: rgba(255,255,255,0.18);
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      margin: 36px 0;
+    }
+
+    /* ── Section heading ── */
+    h2.section-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: #fff;
+      margin: 36px 0 10px;
+      padding-top: 4px;
+    }
+    h2.section-heading:first-of-type { margin-top: 0; }
+
+    /* ── Body prose ── */
+    .prose p {
+      margin-bottom: 14px;
+      color: rgba(255,255,255,0.72);
+    }
+    .prose ul, .prose ol {
+      margin: 10px 0 16px 20px;
+    }
+    .prose li {
+      margin-bottom: 6px;
+      color: rgba(255,255,255,0.68);
+    }
+    .prose a {
+      color: var(--cyan);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s;
+    }
+    .prose a:hover { color: #66e5ff; }
+    .prose strong {
+      color: rgba(255,255,255,0.90);
+      font-weight: 500;
+    }
+
+    /* ── Highlight block ── */
+    .note-block {
+      border-radius: 16px;
+      border: 1px solid rgba(201,168,76,0.25);
+      background: rgba(201,168,76,0.06);
+      padding: 18px 22px;
+      margin: 20px 0;
+    }
+    .note-block p {
+      color: rgba(201,168,76,0.85) !important;
+      font-size: 13px;
+      margin: 0;
+    }
+
+    /* ── In-page anchor nav ── */
+    .toc {
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      padding: 20px 22px;
+      margin-bottom: 36px;
+    }
+    .toc p {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 10px;
+    }
+    .toc ol {
+      margin: 0 0 0 16px;
+    }
+    .toc li { margin-bottom: 4px; }
+    .toc a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.58);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .toc a:hover { color: var(--cyan); }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.30);
+    }
+    footer a {
+      color: rgba(255,255,255,0.42);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    footer a:hover { color: var(--cyan); }
+
+    @media (max-width: 600px) {
+      .header-links { display: none; }
+      .page { padding: 36px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="https://student.hypnoticdreamtv.com/" class="logo-badge">
+        <div class="logo-circle">HDTV</div>
+        <div class="logo-text">
+          <p>Hypnotic Dream TV</p>
+          <p>Student Portal</p>
+        </div>
+      </a>
+      <nav class="header-links">
+        <a href="https://student.hypnoticdreamtv.com/">← Back to Portal</a>
+        <a href="https://hypnoticdreamtv.com/">Main Site</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page content -->
+  <main class="page">
+
+    <p class="page-eyebrow">Legal</p>
+    <h1 class="page-title">Privacy &amp; Terms</h1>
+    <p class="page-meta">
+      hypnoticdreamtv.com
+      <span>·</span>
+      Last updated: June 2026
+      <span>·</span>
+      18+ adult platform
+    </p>
+
+    <!-- Tab switcher -->
+    <div class="tab-nav" role="tablist">
+      <button class="tab-btn active" onclick="showTab('privacy')" role="tab" aria-selected="true">Privacy Policy</button>
+      <button class="tab-btn" onclick="showTab('terms')" role="tab" aria-selected="false">Terms of Service</button>
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         PRIVACY POLICY
+    ══════════════════════════════════════════════ -->
+    <section id="privacy" class="legal-section visible" aria-label="Privacy Policy">
+
+      <div class="toc">
+        <p>Contents</p>
+        <ol>
+          <li><a href="#pp-who">Who we are</a></li>
+          <li><a href="#pp-collect">Information we collect</a></li>
+          <li><a href="#pp-use">How we use your information</a></li>
+          <li><a href="#pp-share">How we share your information</a></li>
+          <li><a href="#pp-retention">Data retention</a></li>
+          <li><a href="#pp-security">Security</a></li>
+          <li><a href="#pp-rights">Your rights</a></li>
+          <li><a href="#pp-cookies">Cookies</a></li>
+          <li><a href="#pp-minors">Children &amp; minors</a></li>
+          <li><a href="#pp-contact">Contact</a></li>
+        </ol>
+      </div>
+
+      <div class="prose">
+
+        <div class="note-block">
+          <p>This Privacy Policy applies to <strong>student.hypnoticdreamtv.com</strong>, <strong>course.hypnoticdreamtv.com</strong>, and <strong>hypnoticdreamtv.com</strong> (collectively, "the Platform"). By using the Platform you agree to this policy.</p>
+        </div>
+
+        <h2 class="section-heading" id="pp-who">1. Who We Are</h2>
+        <p>Hypnotic Dream TV ("HDTV", "we", "us", or "our") operates the Platform as an adult education and entertainment service. Our primary support contact is <a href="mailto:hypnoticalstv@gmail.com">hypnoticalstv@gmail.com</a>.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="pp-collect">2. Information We Collect</h2>
+        <p>We collect information in the following categories:</p>
+        <ul>
+          <li><strong>Account &amp; enrollment data:</strong> email address and any information you submit at enrollment (via Stripe payment forms).</li>
+          <li><strong>Payment data:</strong> payment transactions are processed exclusively by Stripe. We do not store card numbers, CVV, or full payment credentials. We receive only a Stripe customer ID and order confirmation.</li>
+          <li><strong>Usage data:</strong> pages visited, modules accessed, time spent on the student portal, and browser/device information collected via standard server logs and analytics.</li>
+          <li><strong>Communications:</strong> email address and content of any messages you send to us.</li>
+          <li><strong>Login data:</strong> when you log in to the student portal, a notification is sent to our internal admin address for security monitoring. No password is stored in plain text.</li>
+        </ul>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="pp-use">3. How We Use Your Information</h2>
+        <ul>
+          <li>To grant and manage your access to purchased course content.</li>
+          <li>To fulfil membership benefits including Fanvue access and custom video delivery.</li>
+          <li>To send transactional emails (enrollment confirmation, access credentials, support replies) via our email provider Resend.</li>
+          <li>To send marketing and course update emails via MailerLite. You may unsubscribe at any time using the link in any email.</li>
+          <li>To detect fraud, abuse, or unauthorised access to the Platform.</li>
+          <li>To comply with legal obligations.</li>
+        </ul>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="pp-share">4. How We Share Your Information</h2>
+        <p>We do not sell your personal data. We share data only with the following service providers as necessary to operate the Platform:</p>
+        <ul>
+          <li><strong>Stripe</strong> — payment processing. <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe Privacy Policy</a>.</li>
+          <li><strong>MailerLite</strong> — email marketing and automation. <a href="https://www.mailerlite.com/legal/privacy-policy" target="_blank" rel="noopener">MailerLite Privacy Policy</a>.</li>
+          <li><strong>Resend</strong> — transactional email delivery.</li>
+          <li><strong>Vercel</strong> — hosting and serverless infrastructure.</li>
+          <li><strong>Fanvue</strong> — adult content membership platform. Your email may be shared with Fanvue to activate your membership benefit. <a href="https://www.fanvue.com/privacy" target="_blank" rel="noopener">Fanvue Privacy Policy</a>.</li>
+          <li><strong>Zapier</strong> — workflow automation connecting the above services.</li>
+        </ul>
+        <p>We may also disclose data when required by law or to protect our rights or the safety of users.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="pp-retention">5. Data Retention</h2>
+        <p>We retain your data for as long as your membership is active and for a reasonable period thereafter to handle support requests, refund disputes, or legal obligations. You may request deletion at any time (see Section 7).</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="pp-security">6. Security</h2>
+        <p>We implement reasonable technical measures including HTTPS/TLS encryption, hashed passwords, and access-controlled infrastructure. No online service can guarantee absolute security. You are responsible for keeping your login credentials confidential.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="pp-rights">7. Your Rights</h2>
+        <p>Depending on your jurisdiction you may have the right to:</p>
+        <ul>
+          <li>Access the personal data we hold about you.</li>
+          <li>Request correction of inaccurate data.</li>
+          <li>Request deletion of your data ("right to be forgotten").</li>
+          <li>Opt out of marketing communications at any time.</li>
+          <li>Lodge a complaint with your local data protection authority (for EEA/UK residents).</li>
+        </ul>
+        <p>To exercise any of these rights contact us at <a href="mailto:hypnoticalstv@gmail.com">hypnoticalstv@gmail.com</a>.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="pp-cookies">8. Cookies</h2>
+        <p>The student portal uses minimal cookies necessary for session authentication. The marketing site (course.hypnoticdreamtv.com) may use analytics cookies. We do not use third-party advertising cookies. By using the Platform you consent to essential session cookies.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="pp-minors">9. Children &amp; Minors</h2>
+        <p>This Platform is strictly for adults aged 18 and over. We do not knowingly collect personal data from anyone under 18. If we become aware that a minor has provided data we will delete it immediately. If you believe a minor has accessed the Platform contact us at <a href="mailto:hypnoticalstv@gmail.com">hypnoticalstv@gmail.com</a>.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="pp-contact">10. Contact</h2>
+        <p>Questions about this Privacy Policy should be directed to:<br />
+        <a href="mailto:hypnoticalstv@gmail.com">hypnoticalstv@gmail.com</a></p>
+        <p>We may update this policy from time to time. Continued use of the Platform after changes constitutes acceptance of the revised policy.</p>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         TERMS OF SERVICE
+    ══════════════════════════════════════════════ -->
+    <section id="terms" class="legal-section" aria-label="Terms of Service">
+
+      <div class="toc">
+        <p>Contents</p>
+        <ol>
+          <li><a href="#tos-accept">Acceptance of terms</a></li>
+          <li><a href="#tos-eligibility">Eligibility — 18+ only</a></li>
+          <li><a href="#tos-account">Your account</a></li>
+          <li><a href="#tos-purchase">Purchases &amp; payment</a></li>
+          <li><a href="#tos-access">Course access</a></li>
+          <li><a href="#tos-license">License &amp; permitted use</a></li>
+          <li><a href="#tos-conduct">Prohibited conduct</a></li>
+          <li><a href="#tos-content">Adult content acknowledgment</a></li>
+          <li><a href="#tos-ip">Intellectual property</a></li>
+          <li><a href="#tos-disclaimer">Disclaimers</a></li>
+          <li><a href="#tos-liability">Limitation of liability</a></li>
+          <li><a href="#tos-indemnity">Indemnification</a></li>
+          <li><a href="#tos-termination">Termination</a></li>
+          <li><a href="#tos-governing">Governing law</a></li>
+          <li><a href="#tos-contact">Contact</a></li>
+        </ol>
+      </div>
+
+      <div class="prose">
+
+        <div class="note-block">
+          <p>These Terms of Service govern your use of <strong>student.hypnoticdreamtv.com</strong>, <strong>course.hypnoticdreamtv.com</strong>, and <strong>hypnoticdreamtv.com</strong>. By purchasing, enrolling, or accessing any content you agree to be bound by these terms.</p>
+        </div>
+
+        <h2 class="section-heading" id="tos-accept">1. Acceptance of Terms</h2>
+        <p>By accessing or using the Platform you confirm that you have read, understood, and agree to these Terms of Service and our Privacy Policy. If you do not agree, do not use the Platform.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="tos-eligibility">2. Eligibility — 18+ Only</h2>
+        <p>The Platform contains adult educational and entertainment content. <strong>You must be at least 18 years of age</strong> (or the legal age of majority in your jurisdiction, if higher) to use the Platform. By accessing the Platform you represent and warrant that:</p>
+        <ul>
+          <li>You are 18 years of age or older.</li>
+          <li>Accessing adult content is legal in your jurisdiction, state, or country.</li>
+          <li>You are accessing the Platform for personal use only.</li>
+        </ul>
+        <p>We reserve the right to terminate access without refund if we have reason to believe this eligibility requirement has not been met.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="tos-account">3. Your Account</h2>
+        <p>Access to the student portal is protected by a shared course password provided upon enrollment. You are responsible for keeping this password confidential and for all activity that occurs under your access credentials. You must not share your login credentials with any other person. Notify us immediately at <a href="mailto:hypnoticalstv@gmail.com">hypnoticalstv@gmail.com</a> if you believe your access has been compromised.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="tos-purchase">4. Purchases &amp; Payment</h2>
+        <p>All purchases are processed securely by <strong>Stripe</strong>. By completing a purchase you agree to Stripe's terms of service. Prices are listed in USD.</p>
+        <ul>
+          <li><strong>Option 1 — $9:</strong> Full Foundations course + 1 month Fanvue Hypnotic Dream membership.</li>
+          <li><strong>Option 2 — $25:</strong> Full Foundations course + 1 custom video + 2 months Fanvue Hypnotic Dream membership.</li>
+        </ul>
+        <p><strong>All sales are final.</strong> Due to the nature of digital content, we do not offer refunds once course access has been granted, except where required by applicable law. If you have a billing issue contact us at <a href="mailto:hypnoticalstv@gmail.com">hypnoticalstv@gmail.com</a> within 48 hours of purchase.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="tos-access">5. Course Access</h2>
+        <p>Upon successful payment you will receive email instructions to access the student portal. Access is granted to the course content for a minimum of 12 months from the date of purchase unless otherwise stated. Fanvue membership benefits are subject to the duration specified at purchase (1 or 2 months). Custom video delivery (Option 2) will be fulfilled within a reasonable timeframe communicated via email.</p>
+        <p>We reserve the right to update, revise, or remove course content. We will not remove core module content during your access period without reasonable notice.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="tos-license">6. License &amp; Permitted Use</h2>
+        <p>Your purchase grants you a <strong>personal, non-transferable, non-exclusive license</strong> to access and view course content for your own private, non-commercial use. You may not:</p>
+        <ul>
+          <li>Share, redistribute, re-upload, or resell any course materials.</li>
+          <li>Record, screenshot, or reproduce course video or audio content.</li>
+          <li>Use course content for training AI systems, datasets, or derivative products.</li>
+          <li>Transfer or sell your access credentials to any third party.</li>
+        </ul>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="tos-conduct">7. Prohibited Conduct</h2>
+        <p>You agree not to:</p>
+        <ul>
+          <li>Attempt to circumvent or bypass any access controls on the Platform.</li>
+          <li>Use the Platform for any unlawful purpose.</li>
+          <li>Harass, abuse, or threaten any person associated with the Platform.</li>
+          <li>Post or distribute any course content on public platforms, social media, or file-sharing services.</li>
+          <li>Access the Platform if you are a minor or are in a jurisdiction where such content is illegal.</li>
+          <li>Perform any activity that could damage, disable, or overburden the Platform infrastructure.</li>
+        </ul>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="tos-content">8. Adult Content Acknowledgment</h2>
+        <p>The Platform contains sexually explicit adult educational and entertainment content including video, audio, and imagery. By accessing the Platform you expressly acknowledge that:</p>
+        <ul>
+          <li>You have chosen to view sexually explicit material of your own free will.</li>
+          <li>You do not find such material offensive or obscene.</li>
+          <li>You are not accessing the Platform from any location where such material is prohibited.</li>
+          <li>You will not permit any minor to access the Platform through your credentials or device.</li>
+        </ul>
+        <p>AI-generated characters, personas, and imagery used in the Platform are entirely fictional. Any resemblance to real persons is coincidental.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="tos-ip">9. Intellectual Property</h2>
+        <p>All content on the Platform — including but not limited to course videos, audio narrations, written materials, imagery, AI-generated characters, brand assets, and the HDTV name and logo — is the intellectual property of Hypnotic Dream TV or its licensors. All rights are reserved. Nothing in these Terms grants you any ownership interest in the Platform content.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="tos-disclaimer">10. Disclaimers</h2>
+        <p>The Platform is provided on an <strong>"as is"</strong> and <strong>"as available"</strong> basis without warranties of any kind, express or implied. We do not warrant that the Platform will be uninterrupted, error-free, or free of viruses or harmful components.</p>
+        <p>Course content is provided for educational and entertainment purposes only. Results are not guaranteed. We make no representations regarding the accuracy, completeness, or applicability of course content to your personal circumstances.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="tos-liability">11. Limitation of Liability</h2>
+        <p>To the fullest extent permitted by applicable law, Hypnotic Dream TV and its operators, affiliates, and licensors shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of data, loss of profits, or damage to reputation — arising out of or in connection with your use of the Platform, even if advised of the possibility of such damages.</p>
+        <p>Our total liability to you for any claim shall not exceed the amount you paid us in the 30 days preceding the claim.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="tos-indemnity">12. Indemnification</h2>
+        <p>You agree to indemnify and hold harmless Hypnotic Dream TV and its operators from any claims, damages, liabilities, costs, or expenses (including legal fees) arising from your breach of these Terms, your use of the Platform, or your violation of any third-party rights.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="tos-termination">13. Termination</h2>
+        <p>We may suspend or terminate your access to the Platform at any time, with or without notice, if we determine you have violated these Terms. Upon termination you forfeit access to course content and any remaining membership benefits. We reserve the right to refuse service to anyone for any reason.</p>
+        <p>You may terminate your use of the Platform at any time by ceasing to access it. Termination does not entitle you to a refund unless otherwise required by law.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="tos-governing">14. Governing Law</h2>
+        <p>These Terms are governed by and construed in accordance with the laws of the State of Texas, United States, without regard to its conflict of law provisions. Any dispute arising from these Terms shall be resolved exclusively in the courts of Texas. If you are located outside the United States, you consent to the jurisdiction of Texas courts.</p>
+
+        <hr class="divider" />
+
+        <h2 class="section-heading" id="tos-contact">15. Contact</h2>
+        <p>Questions about these Terms should be directed to:<br />
+        <a href="mailto:hypnoticalstv@gmail.com">hypnoticalstv@gmail.com</a></p>
+        <p>We may update these Terms from time to time. Changes become effective upon posting to the Platform. Continued use after changes constitutes acceptance of the revised Terms.</p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 hypnoticdreamtv.com · All rights reserved
+      <span style="margin:0 8px;color:rgba(255,255,255,0.15)">·</span>
+      <a href="mailto:hypnoticalstv@gmail.com">hypnoticalstv@gmail.com</a>
+      <span style="margin:0 8px;color:rgba(255,255,255,0.15)">·</span>
+      18+ adult platform
+    </p>
+  </footer>
+
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('.legal-section').forEach(function(s) {
+        s.classList.remove('visible');
+      });
+      document.querySelectorAll('.tab-btn').forEach(function(b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      document.getElementById(id).classList.add('visible');
+      var btns = document.querySelectorAll('.tab-btn');
+      var idx = id === 'privacy' ? 0 : 1;
+      btns[idx].classList.add('active');
+      btns[idx].setAttribute('aria-selected', 'true');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
