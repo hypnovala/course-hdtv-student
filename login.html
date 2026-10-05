@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HDTV — Student Login</title>
+  <title>HDTV — Student Access</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -18,12 +18,11 @@
       padding: 24px;
     }
 
-    /* subtle radial glow */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 65%);
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -37,7 +36,6 @@
       position: relative;
     }
 
-    /* gold top bar */
     .card::before {
       content: '';
       display: block;
@@ -90,7 +88,6 @@
       line-height: 1.6; margin-bottom: 32px;
     }
 
-    /* FORM */
     label {
       display: block;
       font-size: 11px; font-weight: 600;
@@ -98,22 +95,23 @@
       color: #7a8099; margin-bottom: 8px;
     }
 
-    input[type="email"] {
+    input[type="password"] {
       width: 100%;
       background: #0a0c12;
       border: 1px solid #1e2535;
       border-radius: 5px;
       color: #f5f2ec;
       font-family: 'DM Sans', Arial, sans-serif;
-      font-size: 15px;
+      font-size: 18px;
+      letter-spacing: 0.12em;
       padding: 14px 16px;
       outline: none;
       transition: border-color 0.2s;
       margin-bottom: 20px;
     }
 
-    input[type="email"]::placeholder { color: #3a4060; }
-    input[type="email"]:focus { border-color: rgba(201,168,76,0.5); }
+    input[type="password"]::placeholder { color: #3a4060; letter-spacing: 0.04em; font-size: 14px; }
+    input[type="password"]:focus { border-color: rgba(201,168,76,0.5); }
 
     button[type="submit"] {
       width: 100%;
@@ -127,7 +125,6 @@
       padding: 16px;
       cursor: pointer;
       transition: background 0.2s, transform 0.15s;
-      position: relative;
     }
 
     button[type="submit"]:hover { background: #e8c97a; transform: translateY(-1px); }
@@ -145,21 +142,14 @@
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* STATUS MESSAGES */
     .msg {
       display: none;
       border-radius: 6px;
-      padding: 14px 16px;
+      padding: 12px 16px;
       font-size: 13px;
-      line-height: 1.6;
-      margin-top: 16px;
+      line-height: 1.5;
+      margin-top: 14px;
       text-align: center;
-    }
-
-    .msg.success {
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.3);
-      color: #c9a84c;
     }
 
     .msg.error {
@@ -176,7 +166,6 @@
     }
 
     .help-text a { color: #c9a84c; text-decoration: none; }
-    .help-text a:hover { text-decoration: underline; }
 
     @media (max-width: 480px) {
       .card-header, .card-body { padding-left: 24px; padding-right: 24px; }
@@ -193,102 +182,85 @@
   </div>
 
   <div class="card-body">
-    <h1>Access Your<br>Course</h1>
-    <p class="subtitle">Enter your enrolled email address. We'll send you an instant login link — no password needed.</p>
+    <h1>Enter Your<br>Access Password</h1>
+    <p class="subtitle">Your password was included in your welcome email. Enter it below to unlock your course.</p>
 
     <form id="loginForm">
-      <label for="email">Enrolled Email Address</label>
+      <label for="password">Course Password</label>
       <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="you@email.com"
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter password"
         required
-        autocomplete="email"
+        autocomplete="current-password"
       />
       <button type="submit" id="submitBtn">
-        <span id="btnText">Send My Login Link</span>
+        <span id="btnText">Access My Course</span>
         <span class="spinner" id="spinner"></span>
       </button>
     </form>
-
-    <div class="msg success" id="successMsg">
-      ✓ &nbsp;Check your inbox — your login link is on its way.<br>
-      <span style="font-size:12px; opacity:0.8;">Link expires in 30 minutes. Check your spam folder if needed.</span>
-    </div>
 
     <div class="msg error" id="errorMsg"></div>
 
     <div class="divider"></div>
 
     <p class="help-text">
-      Not enrolled yet? <a href="https://hypnoticdreamtv.com">Get access here →</a><br>
-      Need help? <a href="mailto:hypnoticalstv@gmail.com">hypnoticalstv@gmail.com</a>
+      Need your password? Check your enrollment email.<br>
+      Still need help? <a href="mailto:hypnoticalstv@gmail.com">hypnoticalstv@gmail.com</a>
     </p>
   </div>
 </div>
 
 <script>
-  // Check for error param in URL (e.g. expired link)
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('error') === 'expired') {
-    showError('That link has expired. Enter your email below to get a new one.');
-  } else if (params.get('error') === 'invalid') {
-    showError('That link is invalid. Enter your email below to get a new one.');
-  }
+  // If already logged in, skip to course
+  (async () => {
+    try {
+      const res = await fetch('/api/session');
+      const data = await res.json();
+      if (data.loggedIn) window.location.href = '/';
+    } catch {}
+  })();
 
   document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
     const btn = document.getElementById('submitBtn');
     const btnText = document.getElementById('btnText');
     const spinner = document.getElementById('spinner');
-    const successMsg = document.getElementById('successMsg');
     const errorMsg = document.getElementById('errorMsg');
 
-    // Reset
-    successMsg.style.display = 'none';
     errorMsg.style.display = 'none';
-
-    // Loading state
     btn.disabled = true;
     btnText.style.display = 'none';
     spinner.style.display = 'block';
 
     try {
-      const res = await fetch('/api/send-magic-link', {
+      const res = await fetch('/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ password }),
       });
 
       const data = await res.json();
 
-      if (res.ok) {
-        successMsg.style.display = 'block';
-        document.getElementById('loginForm').style.display = 'none';
+      if (data.success) {
+        window.location.href = '/';
       } else {
-        showError(data.error || 'Something went wrong. Please try again.');
-        resetBtn();
+        errorMsg.textContent = data.error || 'Incorrect password. Please try again.';
+        errorMsg.style.display = 'block';
+        btn.disabled = false;
+        btnText.style.display = 'inline';
+        spinner.style.display = 'none';
       }
     } catch {
-      showError('Could not connect. Please check your connection and try again.');
-      resetBtn();
+      errorMsg.textContent = 'Connection error. Please try again.';
+      errorMsg.style.display = 'block';
+      btn.disabled = false;
+      btnText.style.display = 'inline';
+      spinner.style.display = 'none';
     }
   });
-
-  function showError(msg) {
-    const el = document.getElementById('errorMsg');
-    el.textContent = msg;
-    el.style.display = 'block';
-  }
-
-  function resetBtn() {
-    const btn = document.getElementById('submitBtn');
-    document.getElementById('btnText').style.display = 'inline';
-    document.getElementById('spinner').style.display = 'none';
-    btn.disabled = false;
-  }
 </script>
 
 </body>
